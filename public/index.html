@@ -1,0 +1,324 @@
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thorax: Backbone + Handlebars</title>
+    
+    <link rel="stylesheet" type="text/css" href="screen.css">
+    
+    
+
+    
+
+    <!-- Typekit -->
+    
+      <script type="text/javascript">
+        (function() {
+          var config = {
+            kitId: 'hjp0pft',
+            scriptTimeout: 3000
+          };
+          var h=document.getElementsByTagName("html")[0];h.className+=" wf-loading";var t=setTimeout(function(){h.className=h.className.replace(/( |^)wf-loading( |$)/g,"");h.className+=" wf-inactive"},config.scriptTimeout);var tk=document.createElement("script");tk.src='//use.typekit.net/'+config.kitId+'.js';tk.type="text/javascript";tk.async="true";tk.onload=tk.onreadystatechange=function(){var a=this.readyState;if(a&&a!="complete"&&a!="loaded")return;clearTimeout(t);try{Typekit.load(config)}catch(b){}};var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(tk,s)
+        })();
+      </script>
+    
+  </head>
+  <body><div id="container">
+  <div id="nav">
+    
+      <div id="header">
+        <a href="#" id="logo">Thorax</a>
+      </div>
+    
+    <ul id="sections">
+      
+        <li>
+          <a href="#thorax">Thorax</a>
+          
+            <ul>
+              
+                <li>
+                  <a href="#thorax/template-thorax-template-name-content">template </a>
+                </li>
+              
+                <li>
+                  <a href="#thorax/view-thorax-view-name-protoprops">view </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+      
+        <li>
+          <a href="#thorax-view">Thorax.View</a>
+          
+            <ul>
+              
+                <li>
+                  <a href="#thorax-view/name-view-name">name </a>
+                </li>
+              
+                <li>
+                  <a href="#thorax-view/children-view-children">children </a>
+                </li>
+              
+                <li>
+                  <a href="#thorax-view/parent-view-parent">parent </a>
+                </li>
+              
+                <li>
+                  <a href="#thorax-view/destroy-view-destroy-options">destroy </a>
+                </li>
+              
+                <li>
+                  <a href="#thorax-view/template-view-template">template </a>
+                </li>
+              
+                <li>
+                  <a href="#thorax-view/render-view-render-content">render </a>
+                </li>
+              
+                <li>
+                  <a href="#thorax-view/context-view-context">context </a>
+                </li>
+              
+                <li>
+                  <a href="#thorax-view/rendertemplate-view-rendertemplate-filename-context-ignoreerrors">renderTemplate </a>
+                </li>
+              
+                <li>
+                  <a href="#thorax-view/ensurerendered-view-ensurerendered">ensureRendered </a>
+                </li>
+              
+                <li>
+                  <a href="#thorax-view/html-view-html-content">html </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+      
+        <li>
+          <a href="#view-helpers">View Helpers</a>
+          
+            <ul>
+              
+                <li>
+                  <a href="#view-helpers/super-super">super </a>
+                </li>
+              
+                <li>
+                  <a href="#view-helpers/template-template-name-options">template </a>
+                </li>
+              
+                <li>
+                  <a href="#view-helpers/view-view-name-options">view </a>
+                </li>
+              
+                <li>
+                  <a href="#view-helpers/element-element-name-options">element </a>
+                </li>
+              
+                <li>
+                  <a href="#view-helpers/registerviewhelper-handlebars-registerviewhelper-name-viewclass-callback">registerViewHelper </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+      
+        <li>
+          <a href="#util">Util</a>
+          
+            <ul>
+              
+                <li>
+                  <a href="#util/tag-thorax-util-tag-name-attributes-content-scope">tag </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+      
+        <li>
+          <a href="#extras">Extras</a>
+          
+            <ul>
+              
+                <li>
+                  <a href="#extras/view-event-target-view-options">$.view </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+      
+        <li>
+          <a href="#events">Events</a>
+          
+            <ul>
+              
+                <li>
+                  <a href="#events/destroyed-destroyed">destroyed </a>
+                </li>
+              
+                <li>
+                  <a href="#events/rendered-rendered">rendered </a>
+                </li>
+              
+                <li>
+                  <a href="#events/child-child-instance">child </a>
+                </li>
+              
+                <li>
+                  <a href="#events/helper-helper-name-args-helperview">helper </a>
+                </li>
+              
+                <li>
+                  <a href="#events/helper-name-helper-name-args-helperview">helper:name </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+      
+        <li>
+          <a href="#html-attributes">HTML Attributes</a>
+          
+        </li>
+      
+    <li><a href="#">Plugins</a><ul><li><a href="collection.html">Collection</a></li><li><a href="event.html">Event</a></li><li><a href="form.html">Form</a></li><li><a href="helpers.html">Helpers</a></li><li><a href="loading.html">Loading</a></li><li><a href="lumbar.html">Lumbar</a></li><li><a href="model.html">Model</a></li><li><a href="view-controller.html">ViewController</a></li></ul></li></ul>
+    
+    
+  </div>
+  <div id="content"><h1 id="title">Thorax</h1>
+    
+    <p>An opinionated, battle tested <a href="http://backbonejs.org/">Backbone</a> + <a href="http://handlebarsjs.com/">Handlebars</a> framework to build large scale web applications. 
+
+</p><h2>Quick Start</h2>
+<table cellpadding="0" cellspacing="0" border="0" width="100%" id="downloads">
+  <tr>
+    <td width="33%">
+      <h3>Standalone</h3>
+      <p>Open the <code>index.html</code> file from the downloaded project in your browser.</p>
+    </td>
+    <td width="33%">
+      <h3>Node</h3>
+      <p>Run <code>npm start</code> from the downloaded project.</p>
+    </td>
+    <td width="33%">
+      <h3>Rails</h3>
+      <p>Run <code>rails server</code> from the downloaded project.</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="33%"><a href="https://github.com/downloads/walmartlabs/thorax/thorax-html.zip" class="btn">Download</a></td>
+    <td width="33%"><a href="https://github.com/downloads/walmartlabs/thorax/thorax-node.zip" class="btn btn-primary">Download</a></td>
+    <td width="33%"><a href="https://github.com/downloads/walmartlabs/thorax/thorax-rails.zip" class="btn">Download</a></td>
+  </tr>
+</table>
+
+<h2 id="thorax">Thorax</h2>
+<h3 id="thorax/template-thorax-template-name-content" class="signature">template <em>Thorax.template(name [,content])</em></h3>
+<h3 id="thorax/view-thorax-view-name-protoprops" class="signature">view <em>Thorax.view(name [,protoProps])</em></h3>
+<h2 id="thorax-view">Thorax.View</h2>
+<h3 id="thorax-view/name-view-name" class="signature">name <em>view.name</em></h3>
+<h3 id="thorax-view/children-view-children" class="signature">children <em>view.children</em></h3>
+<h3 id="thorax-view/parent-view-parent" class="signature">parent <em>view.parent</em></h3>
+<h3 id="thorax-view/destroy-view-destroy-options" class="signature">destroy <em>view.destroy([options])</em></h3>
+<h3 id="thorax-view/template-view-template" class="signature">template <em>view.template</em></h3>
+<h3 id="thorax-view/render-view-render-content" class="signature">render <em>view.render([content])</em></h3>
+<p>Renders the view's <code>template</code> updating the view's <code>el</code> with the result, triggering the <code>rendered</code> event. <code>content</code> may be empty (render the <code>template</code>), a function that will be called with the response from <code>context</code> or a string.
+
+</p>
+<pre><code><span class="comment">//will render template</span>
+view.<span class="keyword">render</span>()
+<span class="comment">//will insert custom content</span>
+view.<span class="keyword">render</span>(<span class="string">'custom html'</span>)</code></pre>
+<h3 id="thorax-view/context-view-context" class="signature">context <em>view.context</em></h3>
+<h3 id="thorax-view/rendertemplate-view-rendertemplate-filename-context-ignoreerrors" class="signature">renderTemplate <em>view.renderTemplate(filename, context [,ignoreErrors])</em></h3>
+<h3 id="thorax-view/ensurerendered-view-ensurerendered" class="signature">ensureRendered <em>view.ensureRendered()</em></h3>
+<p>Ensure that the view has been rendered at least once.
+
+</p>
+<h3 id="thorax-view/html-view-html-content" class="signature">html <em>view.html([content])</em></h3>
+<h2 id="view-helpers">View Helpers</h2>
+<h3 id="view-helpers/super-super" class="signature">super <em>{{super}}</em></h3>
+<p>Embed the <code>template</code> from the parent view within the child template.
+
+</p>
+<pre><code><span class="variable">{{super}}</span></code></pre>
+<h3 id="view-helpers/template-template-name-options" class="signature">template <em>{{template name [options]}}</em></h3>
+<p>Embed a template inside of another, as a string. An associated view (if any) will not be initialized. By default the template will be called with the current scope but extra options may be passed which will be added to the context.
+
+</p>
+<pre><code>{{<span class="title">template</span> <span class="string">"path/to/template"</span> key=<span class="string">"value"</span>}}</code></pre>
+<h3 id="view-helpers/view-view-name-options" class="signature">view <em>{{view name [options]}}</em></h3>
+<p>Embed one view in another. The first argument may be the name of a new view to initialize or a reference to a view that has already been initialized.
+
+</p>
+<pre><code>{{<span class="title">view</span> <span class="string">"path/to/view"</span> key=<span class="string">"value"</span>}}
+{{<span class="title">view</span> viewInstance}}</code></pre>
+<h3 id="view-helpers/element-element-name-options" class="signature">element <em>{{element name [options]}}</em></h3>
+<p>Embed a DOM element in the view. This uses a placeholder technique to work, if the placeholder must be of a certain type in order to work (for instance a <code>tbody</code> inside of a <code>table</code>) specify a <code>tag</code> option.
+
+</p>
+<pre><code><span class="tag">&lt;<span class="title">ul</span></span>
+  <span class="variable">{{element domElement tag="li"}}</span>
+<span class="tag">&lt;/<span class="title">ul</span></span></code></pre>
+<h3 id="view-helpers/registerviewhelper-handlebars-registerviewhelper-name-viewclass-callback">registerViewHelper *Handlebars.registerViewHelper(name [,viewClass] ,callback)</h3>
+<h2 id="util">Util</h2>
+<h3 id="util/tag-thorax-util-tag-name-attributes-content-scope" class="signature">tag <em>Thorax.Util.tag(name, attributes [,content] [,scope])</em></h3>
+<h2 id="extras">Extras</h2>
+<h3 id="extras/view-event-target-view-options" class="signature">$.view <em>$(event.target).view([options])</em></h3>
+<p>Get a reference to the nearest parent view. Pass <code>helper: false</code> to options to exclude <code>HelperView</code>s from the lookup. Collection views and most block helpers generate a <code>HelperView</code>.
+
+</p>
+<pre><code>$(event<span class="variable">.target</span>)<span class="variable">.view</span>()</code></pre>
+<h2 id="events">Events</h2>
+<h3 id="events/destroyed-destroyed" class="signature">destroyed <em>destroyed ()</em></h3>
+<h3 id="events/rendered-rendered" class="signature">rendered <em>rendered ()</em></h3>
+<h3 id="events/child-child-instance" class="signature">child <em>child (instance)</em></h3>
+<h3 id="events/helper-helper-name-args-helperview" class="signature">helper <em>helper (name, \</em>args, helperView)*</h3>
+<h3 id="events/helper-name-helper-name-args-helperview" class="signature">helper:name <em>helper:name (\</em>args, helperView)*</h3>
+<h2 id="html-attributes">HTML Attributes</h2>
+<p>This covers HTML attributes generated by the core Thorax library as well as all plugins
+
+</p>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Attribute Name</th>
+      <th>Attached To</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td><code>data-view-cid</code></td><td>Every view instances' <code>el</code></td></tr>
+    <tr><td><code>data-view-name</code></td><td>Same as above, only present on named views</td></tr>
+    <tr><td><code>data-collection-cid</code></td><td>Element generated by the <code>collection helper</code></td></tr>
+    <tr><td><code>data-collection-name</code></td><td>Same as above, only present when the bound collection is named</td></tr>
+    <tr><td><code>data-collection-empty</code></td><td>Set to "true" or "false" depending on wether the bound collection <code>isEmpty</code></td></tr>
+    <tr><td><code>data-model-cid</code></td><td>A view's <code>el</code> if a model was bound to the view or each item element inside of elements generated by the {{#ref "collection-helper"}}collection helper{{/ref}}</td></tr>
+    <tr><td><code>data-model-name</code></td><td>Same as above, only present if the model is named</td></tr>
+    <tr><td><code>data-layout-cid</code></td><td>The element generated by the <code>layout</code> helper or <code>el</code> inside of `Layout"}}, {{ref "ViewController"}} and {{ref "Application"}} instances</td></tr>
+    <tr><td><code>data-partial-cid</code></td><td>Elements generated by various helpers including {{#ref "collection-helper"}}collection{{/ref}} and {{ref "empty"}}</td></tr>
+    <tr><td><code>data-call-method</code></td><td>Elements generated by the {{ref "link"}} and {{ref "button"}} helpers</td></tr>
+  </tbody>
+</table>
+
+<p>data-view-cid
+data-view-name
+data-helper-name
+data-collection-cid
+data-collection-name
+data-collection-empty
+data-model-cid
+data-model-name
+data-layout-cid
+data-call-method</p>
+
+  </div>
+</div></body>
+</html>
