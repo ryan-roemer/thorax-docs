@@ -52,7 +52,7 @@ function modifyOutput(window, isIndex, targetFilename) {
     }
   });
   //append plugin TOC
-  window.$('#sections').append('<li><a href="#">Plugins</a><ul>' + files.map(function(file) {
+  window.$('#sections').after('<div class="header"><a href="#">Plugins</a></div><ul class="sections">' + files.map(function(file) {
     if (!file.match(/\.md$/)) {
       return '';
     }
@@ -62,7 +62,7 @@ function modifyOutput(window, isIndex, targetFilename) {
     }
     var pluginName = pluginPath.replace(/\.html$/,'');
     return '<li><a href="' + pluginPath + '">' + camelize(pluginName) + '</a></li>';
-  }).join('') + '</ul></li>')
+  }).join('') + '</ul>')
   //change header
   if (!isIndex) {
     window.$('#header a').html('Thorax').attr('href', 'index.html').append('<span>' + pluginName + ' Plugin</span>');
