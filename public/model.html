@@ -56,7 +56,7 @@
         </li>
       
         <li>
-          <a href="#events">Events</a>
+          <a href="#view-events">View Events</a>
           
         </li>
       
@@ -70,10 +70,6 @@
                 </li>
               
                 <li>
-                  <a href="#thorax-view/freeze-view-freeze">freeze </a>
-                </li>
-              
-                <li>
                   <a href="#thorax-view/setmodel-view-setmodel-model-options">setModel </a>
                 </li>
               
@@ -82,12 +78,12 @@
         </li>
       
         <li>
-          <a href="#extrax">Extrax</a>
+          <a href="#">$</a>
           
             <ul>
               
                 <li>
-                  <a href="#extrax/model-event-target-model">$.model </a>
+                  <a href="#/model-event-target-model">$.model </a>
                 </li>
               
             </ul>
@@ -101,20 +97,62 @@
   <div id="content">
     
     <h1>Thorax Model Plugin</h1>
-<h2 id="thorax-model">Thorax.Model</h2>
-<h3 id="thorax-model/model-thorax-model-name-protoprops" class="signature">model <em>Thorax.model(name [,protoProps])</em></h3>
-<h3 id="thorax-model/isempty-model-isempty" class="signature">isEmpty <em>model.isEmpty()</em></h3>
-<h3 id="thorax-model/ispopulated-model-ispopulated" class="signature">isPopulated <em>model.isPopulated()</em></h3>
-<h2 id="events">Events</h2>
-<p>view.on({model: eventsHash})
+<p>Adds model binding to Thorax.View and necessary support methods to Thorax.Model.
 
 </p>
+<h2 id="thorax-model">Thorax.Model</h2>
+<h3 id="thorax-model/model-thorax-model-name-protoprops" class="signature">model <em>Thorax.model(name [,protoProps])</em></h3>
+<p>Get or set a model class.
+
+</p>
+<h3 id="thorax-model/isempty-model-isempty" class="signature">isEmpty <em>model.isEmpty()</em></h3>
+<p>Used by the <code>empty</code> helper. In a collection the implementations of <code>isEmpty</code> and <code>isPopulated</code> differ, but in a model <code>isEmpty</code> is an alias for <code>isPopulated</code>.
+
+</p>
+<h3 id="thorax-model/ispopulated-model-ispopulated" class="signature">isPopulated <em>model.isPopulated()</em></h3>
+<p>Used by <code>setModel</code> to determine wether or not to fetch the model. The default implementation checks to see if any keys that are not <code>id</code> and are not default values have been set.
+
+</p>
+<h2 id="view-events">View Events</h2>
+<p>The model plugin extends the events plugin by allowing a <code>model</code> hash of events to be specified in the View <code>events</code> object or to a view's <code>on</code> method. When a model is bound to a view with <code>setModel</code> any events on the model can be observed by the view in this way. For instance to observe any model <code>change</code> event when it is bound to any view:
+
+</p>
+<pre><code><span class="tag">Thorax</span><span class="class">.View</span><span class="class">.on</span>(<span class="rules">{
+  <span class="rule"><span class="attribute">model</span>:<span class="value"> {
+    change: <span class="function">function()</span> {
+      //<span class="string">"this"</span> will refer to the view
+    </span>}</span></span>
+  }
+});</code></pre>
 <h2 id="thorax-view">Thorax.View</h2>
 <h3 id="thorax-view/context-view-context" class="signature">context <em>view.context()</em></h3>
-<h3 id="thorax-view/freeze-view-freeze" class="signature">freeze <em>view.freeze()</em></h3>
+<p>Changes the default context available to a view to be <code>this</code> + <code>model.attributes</code> instead of just <code>this</code>.
+
+</p>
 <h3 id="thorax-view/setmodel-view-setmodel-model-options" class="signature">setModel <em>view.setModel(model [,options])</em></h3>
-<h2 id="extrax">Extrax</h2>
-<h3 id="extrax/model-event-target-model" class="signature">$.model <em>$(event.target).model()</em></h3>
+<p>Set the <code>model</code> attribute of a view, triggering certain behaviors based on the options passed. Setting <code>model</code> in the construtor will automatically call <code>setModel</code>. When a model is set it will be fetched by default if it needs to be, re-rendering the view when it has succeeded. Available options:
+
+</p>
+<ul>
+<li><strong>fetch</strong> - Boolean, wether to fetch the model when it is set, defaults to true.</li>
+<li><strong>success</strong> - Callback on fetch success, defaults to noop</li>
+<li><strong>render</strong> - Render on the view on model:change? Defaults to true</li>
+<li><strong>populate</strong> - Call <code>populate</code> with the model's attributes when it is set? Defaults to true</li>
+<li><strong>errors</strong> - When the model triggers an <code>error</code> event, trigger the event on the view? Defaults to true</li>
+</ul>
+<p>The following are equivelent:
+
+</p>
+<pre><code>var view = new Thorax<span class="preprocessor">.View</span>({
+  model: myModel
+})<span class="comment">;</span>
+view<span class="preprocessor">.setModel</span>(myModel)<span class="comment">;</span></code></pre>
+<h2 id="">$</h2>
+<h3 id="/model-event-target-model" class="signature">$.model <em>$(event.target).model()</em></h3>
+<p>Get a reference to the nearest bound model.
+
+</p>
+<pre><code>$(event<span class="variable">.target</span>)<span class="variable">.model</span>()</code></pre>
 
   </div>
 </div></body>

@@ -40,10 +40,6 @@
             <ul>
               
                 <li>
-                  <a href="#class-methods/events-klass-events">events </a>
-                </li>
-              
-                <li>
                   <a href="#class-methods/on-klass-on-eventname-callback">on </a>
                 </li>
               
@@ -109,24 +105,81 @@
   <div id="content">
     
     <h1>Thorax Event Plugin</h1>
-<p>containHandlerToCurentView
+<p>Adds inheritable class events for all Backbone and Thorax classes and significant enhancements to the Thorax.View event handling. 
 
 </p>
 <h2 id="class-methods">Class Methods</h2>
-<h3 id="class-methods/events-klass-events" class="signature">events <em>klass.events = {}</em></h3>
 <h3 id="class-methods/on-klass-on-eventname-callback" class="signature">on <em>klass.on(eventName, callback)</em></h3>
-<h2 id="instance-methods">Instance Methods</h2>
-<h3 id="instance-methods/freeze-view-freeze-options" class="signature">freeze <em>view.freeze([options])</em></h3>
-<h3 id="instance-methods/_addevent-view-_addevent-eventparams" class="signature">_addEvent <em>view._addEvent(eventParams)</em></h3>
-<h2 id="event-enhancements">Event Enhancements</h2>
-<h3 id="event-enhancements/events-object-view-events" class="signature">Events Object <em>view.events</em></h3>
-<p>Can be passed to view.on()
+<p>Allows all Backbone and Thorax classes to observe events on all instances of the class. Subclasses inherit their parents' event handlers. Optionally an object may be passed containing <code>eventName</code> <code>callback</code> pairs.
 
 </p>
+<pre><code>Backbone.Model.on(<span class="string">'change'</span>, <span class="keyword">function</span>() {
+  <span class="comment">//"this" will refer to the model</span>
+  <span class="comment">//that triggered the event</span>
+});
+
+Thorax.View.on({
+  <span class="string">'click a'</span>: <span class="keyword">function</span>(event) {
+
+  }
+});</code></pre>
+<h2 id="instance-methods">Instance Methods</h2>
+<p>Applies only to Thorax.View and subclasses.
+
+</p>
+<h3 id="instance-methods/freeze-view-freeze-options" class="signature">freeze <em>view.freeze([options])</em></h3>
+<p><code>off</code> all view event handlers, DOM event handlers and call <code>freeze</code> on any child views. Pass <code>dom: false</code> to only <code>off</code> view events, or <code>children: false</code> to prevent <code>freeze</code> from being called on child views. Triggers the <code>freeze</code> event.
+
+</p>
+<h3 id="instance-methods/_addevent-view-_addevent-eventparams" class="signature">_addEvent <em>view._addEvent(eventParams)</em></h3>
+<p>This method is never called directly, but can be specified to override the behavior of the <code>events</code> hash or any event arguments passed to <code>on</code>. For each event declared in either manner <code>_addEvent</code> will be called with a hash containing:
+
+</p>
+<ul>
+<li>type "view" || "DOM"</li>
+<li>name (DOM events will begin with ".delegateEvents")</li>
+<li>originalName</li>
+<li>selector (DOM events only)</li>
+<li>handler</li>
+</ul>
+<h2 id="event-enhancements">Event Enhancements</h2>
+<p>Applies only to Thorax.View and subclasses.
+
+</p>
+<h3 id="event-enhancements/events-object-view-events" class="signature">Events Object <em>view.events</em></h3>
+<p>The <code>Backbone events</code> object now accepts view events in addition to DOM events. In addition any object that can be set as the events object may also be passed to the <code>on</code> method.
+
+</p>
+<pre><code><span class="tag">new</span> <span class="tag">Thorax</span><span class="class">.View</span>(<span class="rules">{
+  <span class="rule"><span class="attribute">events</span>:<span class="value"> {
+    <span class="string">'click a'</span>: <span class="function">function()</span> {</span>}</span></span>,
+    <span class="tag">rendered</span>: <span class="tag">function</span>() <span class="rules">{<span class="rule">}</span></span>
+  }
+})</code></pre>
 <h3 id="event-enhancements/auto-unbind-view-on-targetobj-eventname-callback-context" class="signature">Auto Unbind <em>view.on(targetObj, eventName, callback [,context])</em></h3>
+<p>Listen for an event on the <code>targetObj</code> until <code>freeze</code> or <code>destroy</code> are called on the view, at which point the listener will be auto unbound (auto <code>off</code>ed if you will). Most model and collection behaviors in Thorax are implemented in this manner.
+
+</p>
+<pre><code><span class="reserved">var</span> view = <span class="keyword">new</span> Thorax.View();
+<span class="reserved">var</span> otherView = <span class="keyword">new</span> Thorax.View();
+view.<span class="literal">on</span>(otherView, <span class="string">'rendered'</span>, <span class="reserved">function</span>(){});
+view.destroy();
+//the observer registered above will <span class="keyword">not</span> be triggered
+otherView.render();</code></pre>
 <h3 id="event-enhancements/dom-events-view-on-eventnameandselector-callback-context" class="signature">DOM Events <em>view.on(eventNameAndSelector, callback [,context])</em></h3>
+<p>The <code>on</code> method will now accept event strings in the same format as the events hash, for instance <code>click a</code>. Events separated by a space will still be treated as registering multiple events so long as the event name does not start with a DOM event name (<code>click</code>, <code>change</code>, <code>mousedown</code> etc).
+
+</p>
+<p>DOM events observed in this way will only operate on the view itself. If the view embeds other views with the <code>view</code> helper that would match the event name and selector, they will be ignored. For instance declaring:
+
+</p>
+<pre><code>view.<span class="keyword">on</span>(<span class="string">'click a'</span>, <span class="keyword">function</span>()<span class="comment">{}</span>)</code></pre>
+<p>Will only listen for clicks on <code>a</code> elements within the view. If the view has children that has <code>a</code> elements, this handler will not observe clicks on them.
+
+</p>
 <h2 id="events">Events</h2>
-<h3 id="events/freeze-freeze" class="signature">freeze <em>freeze ()</em></h3>
+<h3 id="events/freeze-freeze" class="signature">freeze <em>freeze</em></h3>
+<p>Triggered when the <code>freeze</code> method is called (either directly or via <code>destroy</code>). No arguments are passed.</p>
 
   </div>
 </div></body>
