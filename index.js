@@ -89,6 +89,9 @@ function modifyOutput(window, isIndex, targetFilename) {
   //window.$('script').last().remove();
   //remove typekit
   //window.$('script').last().remove();
+
+  //append copyright
+  window.$('#content').append('<p>Copyright 2012 <a href="http://walmartlabs.com">@WalmartLabs</a></p>');
 }
 
 function createWindow(html, callback) {
