@@ -72,7 +72,17 @@
     Application.setView(view);
   }
 });</code></pre>
+<p>A specific <code>Thorax.Router</code> or <code>Thorax.ViewController</code> instance may also be passed:
+
+</p>
+<pre><code>module.router(<span class="keyword">new</span> Thorax.ViewController({
+  index: <span class="keyword">function</span>() {
+    <span class="keyword">var</span> klass = Application.view(<span class="string">'hello-world/index'</span>);
+    <span class="keyword">var</span> view = <span class="keyword">new</span> klass();
+    <span class="keyword">this</span>.setView(view);
+  }
+}));</code></pre>
 
   </div>
-</div></body>
+</div><a href="https://github.com/walmartlabs/thorax"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a></body>
 </html>
