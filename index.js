@@ -79,15 +79,12 @@ function modifyOutput(window, isIndex, targetFilename) {
     window.$(this).parent().addClass('signature');
   });
   if (isIndex) {
-    //replace "overview" with "thorax"
+    //insert header
     window.$('#content').prepend('<h1 id="title">Thorax</h1>');
-    //add github buttons
-    //window.$('#content').prepend('<iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=walmartlabs&repo=thorax&type=watch&count=false&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170px" height="30px"></iframe>');
-    //add download buttons
-    window.$('#content > p:first').after(fs.readFileSync(path.join(__dirname, 'assets', 'downloads.html')).toString());
   }
   //remove appended jquery
   window.$('script').last().remove();
+  window.$('body').append('<a href="https://github.com/walmartlabs/thorax"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>');
   //remove typekit config
   //window.$('script').last().remove();
   //remove typekit
