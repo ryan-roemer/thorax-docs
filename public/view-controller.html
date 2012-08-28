@@ -78,19 +78,6 @@
         </li>
       
         <li>
-          <a href="#thorax-application">Thorax.Application</a>
-          
-            <ul>
-              
-                <li>
-                  <a href="#thorax-application/start-application-start-options">start </a>
-                </li>
-              
-            </ul>
-          
-        </li>
-      
-        <li>
           <a href="#view-helpers">View Helpers</a>
           
             <ul>
@@ -140,7 +127,7 @@
           
         </li>
       
-    </ul><div class="header"><a href="#">Plugins</a></div><ul class="sections"><li><a href="collection.html">Collection</a></li><li><a href="event.html">Event</a></li><li><a href="form.html">Form</a></li><li><a href="helpers.html">Helpers</a></li><li><a href="loading.html">Loading</a></li><li><a href="lumbar.html">Lumbar</a></li><li><a href="model.html">Model</a></li><li><a href="view-controller.html">ViewController</a></li></ul>
+    </ul><div class="header"><a href="#">Plugins</a></div><ul class="sections"><li><a href="collection.html">Collection</a></li><li><a href="event.html">Event</a></li><li><a href="form.html">Form</a></li><li><a href="helpers.html">Helpers</a></li><li><a href="loading.html">Loading</a></li><li><a href="model.html">Model</a></li><li><a href="view-controller.html">ViewController</a></li></ul>
     
     
   </div>
@@ -191,41 +178,6 @@ $(<span class="comment">'body').append(controller.el);</span></code></pre>
   <span class="keyword">...</span>
 });</code></pre>
 <p>Unlike calling <code>setView</code> on views, <code>ViewController</code> instances are never destroyed.
-
-</p>
-<h2 id="thorax-application">Thorax.Application</h2>
-<p>A subclass of <code>Thorax.ViewController</code> usually created just once. The Application object automatically subclasses the following classes for you:
-
-</p>
-<ul>
-<li>LayoutView</li>
-<li>View</li>
-<li>Model</li>
-<li>Collection</li>
-<li>Router</li>
-<li>ViewController</li>
-</ul>
-<p>Making them available on the <code>Application</code> object, for instance <code>Application.View</code>. The following registry methods are also aliased on the <code>Application</code> object:
-
-</p>
-<ul>
-<li>template</li>
-<li>view</li>
-<li>model</li>
-<li>collection</li>
-<li>router</li>
-</ul>
-<p>A simple hello world example:
-
-</p>
-<pre><code>var Application = new Thorax<span class="preprocessor">.Application</span>()<span class="comment">;</span>
-Application<span class="preprocessor">.start</span>()<span class="comment">;</span>
-Application<span class="preprocessor">.setView</span>(new Application<span class="preprocessor">.View</span>({
-  template: <span class="string">"Hello World!"</span>
-}))<span class="comment">;</span>
-$(<span class="string">"body"</span>)<span class="preprocessor">.append</span>(Application<span class="preprocessor">.el</span>)<span class="comment">;</span></code></pre>
-<h3 id="thorax-application/start-application-start-options" class="signature">start <em>application.start([options])</em></h3>
-<p>Calls <code>Backbone.history.start</code> with the given <code>options</code> and then fires a <code>ready</code> event on the application object.
 
 </p>
 <h2 id="view-helpers">View Helpers</h2>

@@ -40,16 +40,16 @@
         </li>
       
         <li>
-          <a href="#thorax">Thorax</a>
+          <a href="#registry">Registry</a>
           
             <ul>
               
                 <li>
-                  <a href="#thorax/template-thorax-template-name-content">template </a>
+                  <a href="#registry/name-klass-prototype-name">name </a>
                 </li>
               
                 <li>
-                  <a href="#thorax/view-thorax-view-name-protoprops">view </a>
+                  <a href="#registry/templates-thorax-templates">templates </a>
                 </li>
               
             </ul>
@@ -60,10 +60,6 @@
           <a href="#thorax-view">Thorax.View</a>
           
             <ul>
-              
-                <li>
-                  <a href="#thorax-view/name-view-name">name </a>
-                </li>
               
                 <li>
                   <a href="#thorax-view/children-view-children">children </a>
@@ -166,6 +162,10 @@
             <ul>
               
                 <li>
+                  <a href="#command-line/build-thorax-build-plugin-plugin">build </a>
+                </li>
+              
+                <li>
                   <a href="#command-line/templates-thorax-templates-templates-templates-js">templates </a>
                 </li>
               
@@ -207,7 +207,7 @@
           
         </li>
       
-    </ul><div class="header"><a href="#">Plugins</a></div><ul class="sections"><li><a href="collection.html">Collection</a></li><li><a href="event.html">Event</a></li><li><a href="form.html">Form</a></li><li><a href="helpers.html">Helpers</a></li><li><a href="loading.html">Loading</a></li><li><a href="lumbar.html">Lumbar</a></li><li><a href="model.html">Model</a></li><li><a href="view-controller.html">ViewController</a></li></ul>
+    </ul><div class="header"><a href="#">Plugins</a></div><ul class="sections"><li><a href="collection.html">Collection</a></li><li><a href="event.html">Event</a></li><li><a href="form.html">Form</a></li><li><a href="helpers.html">Helpers</a></li><li><a href="loading.html">Loading</a></li><li><a href="model.html">Model</a></li><li><a href="view-controller.html">ViewController</a></li></ul>
     
     
   </div>
@@ -232,13 +232,13 @@
     </td>
   </tr>
   <tr>
-    <td width="33%"><a href="https://github.com/downloads/walmartlabs/thorax/thorax-html.zip" class="btn">Download 2.0.0b1</a></td>
-    <td width="33%"><a href="https://github.com/downloads/walmartlabs/thorax/thorax-node.zip" class="btn btn-primary">Download 2.0.0b1</a></td>
-    <td width="33%"><a href="https://github.com/downloads/walmartlabs/thorax/thorax-rails.zip" class="btn">Download 2.0.0b1</a></td>
+    <td width="33%"><a href="https://github.com/downloads/walmartlabs/thorax/thorax-html.zip" class="btn">Download 2.0.0b2</a></td>
+    <td width="33%"><a href="https://github.com/downloads/walmartlabs/thorax/thorax-node.zip" class="btn btn-primary">Download 2.0.0b2</a></td>
+    <td width="33%"><a href="https://github.com/downloads/walmartlabs/thorax/thorax-rails.zip" class="btn">Download 2.0.0b2</a></td>
   </tr>
 </table>
 
-<p>Thorax can be used standalone in any JavaScript environment in addition the boilerplate projects provided above.
+<p>Thorax can be used standalone in any JavaScript environment in addition the <a href="https://github.com/walmartlabs/thorax-boilerplate">boilerplate projects</a> provided above.
 
 </p>
 <pre><code>var view = new Thorax<span class="preprocessor">.View</span>({
@@ -247,55 +247,60 @@
 view<span class="preprocessor">.render</span>()<span class="comment">;</span>
 $(<span class="string">"body"</span>)<span class="preprocessor">.append</span>(view<span class="preprocessor">.el</span>)<span class="comment">;</span></code></pre>
 <h2 id="editable-examples">Editable Examples</h2>
-<p>All of the examples use the <a href="https://raw.github.com/gist/3353451/6ae32d360523c996fc9085252509ed3cec0851ca/thorax.sample-data.js">same sample data</a> and many use functionality found in plugins.
+<p>All of the examples use the <a href="https://raw.github.com/gist/3504663/d1e6321e9fdb69ff47d636eab5df5e52acb64ae0/gistfile1.txt">same sample data</a> and many use functionality found in plugins.
 
 </p>
 <ul>
-<li><a href="http://jsfiddle.net/HAdxJ/">Todos</a></li>
-<li><a href="http://jsfiddle.net/bydS9/">$.model</a></li>
-<li><a href="http://jsfiddle.net/3brkX/">Context</a></li>
-<li><a href="http://jsfiddle.net/d7DKF/">view &amp; template helpers</a></li>
-<li><a href="http://jsfiddle.net/rTtP5/">empty helper</a></li>
-<li><a href="http://jsfiddle.net/GUL8v/">freeze</a></li>
-<li><a href="http://jsfiddle.net/Y8AMu/">LayoutView</a></li>
-<li><a href="http://jsfiddle.net/dG2JE/">registerViewHelper</a></li>
+<li><a href="http://jsfiddle.net/AhKp3/">Todos</a></li>
+<li><a href="http://jsfiddle.net/e3CML/">$.model</a></li>
+<li><a href="http://jsfiddle.net/5p2mw/">Context</a></li>
+<li><a href="http://jsfiddle.net/aaNxq/">view &amp; template helpers</a></li>
+<li><a href="http://jsfiddle.net/xFrrT/">empty helper</a></li>
+<li><a href="http://jsfiddle.net/hBjje/">freeze</a></li>
+<li><a href="http://jsfiddle.net/7BmCw/">LayoutView</a></li>
+<li><a href="http://jsfiddle.net/SxxZh/">registerViewHelper</a></li>
 </ul>
-<h2 id="thorax">Thorax</h2>
-<p>The root <code>Thorax</code> object acts as a registry for classes and templates.
+<h2 id="registry">Registry</h2>
+<p>Thorax creates a special hash for each type of class to store all subclasses in your application. The use of <code>Thorax.Views</code> and <code>Thorax.templates</code> is required to allow the <code>view</code>, <code>template</code> and other helper methods to operate, but the use of the others are optional and provided for consitency.
 
 </p>
-<h3 id="thorax/template-thorax-template-name-content" class="signature">template <em>Thorax.template(name [,content])</em></h3>
-<p>Get or set a template by name. If using the included node or Rails downloads any <code>.handlebars</code> files will automatically be available by name sans extension. Any helpers dealing with templates will assume templates were set in this manner.
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Registry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Thorax.View</td><td>Thorax.Views</td></tr>
+    <tr><td>Thorax.Model</td><td>Thorax.Models</td></tr>
+    <tr><td>Thorax.Collection</td><td>Thorax.Collections</td></tr>
+    <tr><td>Thorax.Router</td><td>Thorax.Routers</td></tr>
+    <tr><td>templates</td><td>Thorax.templates</td></tr>
+  </tbody>
+</table>
+
+<h3 id="registry/name-klass-prototype-name" class="signature">name <em>klass.prototype.name</em></h3>
+<p>If a <code>name</code> property is passed to any Thorax classes' <code>extend</code> method the resulting class will be automatically set in the corresponding registry.
 
 </p>
-<pre><code>//<span class="keyword">set</span> a template
-Thorax<span class="preprocessor">.template</span>(<span class="string">"list-o-cats"</span>, <span class="string">"{{#collection cats}}{{/collection}}"</span>)<span class="comment">;</span>
+<pre><code><span class="comment">//set class</span>
+Thorax<span class="variable">.View</span><span class="variable">.extend</span>({
+  name: <span class="string">"my-view"</span>
+});
 
-//get a template
-var template = Thorax<span class="preprocessor">.template</span>(<span class="string">"list-o-cats"</span>)<span class="comment">;</span></code></pre>
-<h3 id="thorax/view-thorax-view-name-protoprops" class="signature">view <em>Thorax.view(name [,protoProps])</em></h3>
-<p>Get or set a view class by name. Any helpers dealing with views will assume views were set in this manner.
+<span class="comment">//get class</span>
+Thorax<span class="variable">.Views</span>[<span class="string">"my-view"</span>]</code></pre>
+<h3 id="registry/templates-thorax-templates" class="signature">templates <em>Thorax.templates</em></h3>
+<p>A hash of templates, used by various Thorax helpers. If using the node or Rails boilerplate projects this hash will be automatically generated from the files in your <code>templates</code> directories. To manually add a template to the hash:
 
 </p>
-<pre><code><span class="comment">//create a new Thorax.View subclass</span>
-<span class="keyword">var</span> ListOCatsView = Thorax.view(<span class="string">'list-o-cats'</span>, {});
-ListOCatsView.name; <span class="comment">//list-o-cats</span>
+<pre><code>Thorax.templates[<span class="attribute">'my</span>-template-name'] = Handlebars.compile(<span class="attribute">'template</span> <span class="typename">string</span>');</code></pre>
+<p>If a <code>View</code> has the same <code>name</code> as a template in the <code>templates</code> hash, it's `template' property will be automatically assigned.
 
-<span class="comment">//or use a specific subclass</span>
-Thorax.view(<span class="string">'my-subclass'</span>, SubclassView.extend({}));
-
-<span class="comment">//retrieve a view class</span>
-<span class="keyword">var</span> ListOCatsView = Thorax.view(<span class="string">'list-o-cats'</span>);
-<span class="keyword">var</span> view = <span class="keyword">new</span> ListOCatsView();
-<span class="comment">//template will be auto assigned if possible</span>
-view.template == Thorax.template(<span class="string">"list-o-cats"</span>);
-
-<span class="comment">//don't use the new keyword directly:</span>
-<span class="keyword">new</span> Thorax.view(<span class="string">'list-o-cats'</span>); <span class="comment">//NO</span>
-<span class="keyword">var</span> view = Thorax.view(<span class="string">'list-o-cats'</span>);
-<span class="keyword">new</span> view(); <span class="comment">//YES</span></code></pre>
+</p>
 <h2 id="thorax-view">Thorax.View</h2>
-<p>The base <code>Thorax.View</code> implementation is concerned only with Handlebars + Backbone integration. A variety of additional functionality is provided by the various included plugins. 
+<p>The base <code>Thorax.View</code> implementation is concerned only with Handlebars + Backbone integration. A variety of additional functionality is provided by the various included plugins. The boilerplate projects have a build of Thorax with all plugins included.
 
 </p>
 <pre><code><span class="keyword">var</span> view = <span class="built_in">new</span> Thorax.View({
@@ -304,10 +309,6 @@ view.template == Thorax.template(<span class="string">"list-o-cats"</span>);
 });
 view.render();
 $(<span class="string">'body'</span>).<span class="built_in">append</span>(view.el);</code></pre>
-<h3 id="thorax-view/name-view-name" class="signature">name <em>view.name</em></h3>
-<p>The name of the view, which may be manually set or automatically set when the class is created with <code>Thorax.view</code>.
-
-</p>
 <h3 id="thorax-view/children-view-children" class="signature">children <em>view.children</em></h3>
 <p>A hash of child view's indexed by <code>cid</code>. Child views may become attached to the parent with the <code>view</code> helper or may be automatically attached <code>HelperView</code> instanced created by helpers created with <code>regsterViewHelper</code>.
 
@@ -405,6 +406,27 @@ view.<span class="keyword">render</span>(<span class="string">'custom html'</spa
 </p>
 <pre><code>$(event<span class="variable">.target</span>)<span class="variable">.view</span>()</code></pre>
 <h2 id="command-line">Command Line</h2>
+<p>To use the command line utilities:
+
+</p>
+<pre><code><span class="title">npm</span> install -g thorax</code></pre>
+<h3 id="command-line/build-thorax-build-plugin-plugin" class="signature">build <em>thorax build [plugin] [plugin...]</em></h3>
+<p>Build a custom version of Thorax using a list of any of the given plugins:
+
+</p>
+<ul>
+<li>mixin</li>
+<li>event</li>
+<li>model</li>
+<li>collection</li>
+<li>helpers</li>
+<li>form</li>
+<li>view-controller</li>
+<li>loading</li>
+</ul>
+<p>Not specifying any plugins will build a version with all plugins.
+
+</p>
 <h3 id="command-line/templates-thorax-templates-templates-templates-js" class="signature">templates <em>thorax templates ./templates ./templates.js</em></h3>
 <p>If using Thorax outside of the provided node or Rails downloads you can inline a directory of templates into a single file by running the <code>thorax templates</code> command.
 
