@@ -28,6 +28,7 @@
   </div>
 </header>
 
+
 <div class="hero clearfix">
   <div class="l-constrained">
     <h2 class="tagline">An opinionated, battle-tested <a href="http://backbonejs.org/">Backbone</a> + <a href="http://handlebarsjs.com">Handlebars</a> framework to build large scale web applications.</h2>
@@ -51,120 +52,7 @@
       <li><a class="ir used-by-metalab" href="http://metalabdesign.com">Metalab</a></li>
     </ul>
   </div>
-
-    <h3>Getting Started</h3>
-
-    <div class="example-section">
-      <ul class="example-tabs clearfix">
-        <li><button class="btn tab">Simple Todos</button></li>
-        <li><button class="btn tab active">$.model</button></li>
-        <li><button class="btn tab">Context</button></li>
-        <li><button class="btn tab">view &amp; template helpers</button></li>
-        <li><button class="btn tab">empty helper</button></li>
-        <li><button class="btn tab">freeze</button></li>
-        <li><button class="btn tab">LayoutView</button></li>
-        <li><button class="btn tab">registerViewHelper</button></li>
-      </ul>
-      <div class="example-container clearfix">
-        <div class="example-column example-code" style="display: none">
-<pre><code>$ -&gt;
-ExampleView = Thorax.View.extend
-  name: '$-example'
-  cats: Thorax.Collections.Cats.instance
-  events:
-    'click li': (event) -&gt;
-      name = $(event.target).model().get('name')
-      $('body').append 'clicked on ' + name + '&lt;br&gt;'
-  template: """
-    &lt;h3&gt;$ Example&lt;/h3&gt;
-    {{#collection cats tag="ul"}}
-      &lt;li&gt;{{name}}&lt;/li&gt;
-    {{/collection}}
-  """
-
-Application.setView new ExampleView​​​​​</code></pre>
-        </div>
-        <div class="example-column example-result" style="display: none;">
-          <div data-view-cid="view0">
-            <div data-layout-cid="view0">
-              <div data-view-name="$-example" data-view-cid="view11">
-                <h3>$ Example</h3>
-                <ul data-view-cid="view13" data-collection-cid="collection14">
-                  <li data-model-cid="c8">Mittens</li>
-                  <li data-model-cid="c9">George</li>
-                  <li data-model-cid="c10">Killer</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="example-column example-code">
-<pre><code>$ -&gt;
-  
-  mittens = Thorax.Collections.Cats.instance.at(0)
-  TodosView = Thorax.View.extend
-    name: 'todos'
-    title: mittens.get('name') + " Todos"
-    todos: mittens.get('todos')
-    events:
-      'change input[type="checkbox"]': (event) -&gt;
-        target = $(event.target)
-        target.model().set done: !!target.attr('checked')
-      'submit form': (event) -&gt;
-        event.preventDefault()
-        input = @$('input[type="text"]')
-        @todos.add item: input.val()
-        input.val('')
-    template: """
-      &lt;h3&gt;{{title}}&lt;/h3&gt;
-      {{#collection todos tag="ul"}}
-        &lt;li{{#if done}} class="done"{{/if}}&gt;
-          &lt;input type="checkbox" name="done"{{#if done}} checked="checked"{{/if}}&gt;
-          &lt;span&gt;{{item}}&lt;/span&gt;
-        &lt;/li&gt;
-      {{/collection}}
-      &lt;form class="form-inline"&gt;
-        &lt;input type="text"&gt;
-        &lt;input type="submit" value="Add" class="btn btn-primary"&gt;
-      &lt;/form&gt;
-    """
-
-  Application.setView new TodosView</code></pre>
-        </div>
-
-        <div class="example-column example-result">
-          <div data-view-cid="view0">
-            <div data-layout-cid="view0">
-              <div data-view-name="todos" data-view-cid="view11">
-                <h3>Mittens Todos</h3>
-                <ul data-view-cid="view13" data-collection-cid="collection14">
-                  <li data-model-cid="c2">
-                    <input type="checkbox" name="done">
-                    <span>Finish Thorax Site</span>
-                  </li>
-                  <li class="done" data-model-cid="c3">
-                    <input type="checkbox" name="done" checked="checked">
-                    <span>Neuter best friend</span>
-                </li>
-                <li class="done" data-model-cid="c3">
-                  <input type="checkbox" name="done" checked="checked">
-                  <span>Write a todo</span>
-                </li>
-                <li class="done" data-model-cid="c3">
-                  <input type="checkbox" name="done">
-                  <span>Whoa, this is a working example!</span>
-                </li>
-              </ul>
-              <form class="form-inline">
-                <input type="text" value="I'm sufficiently impressed!">
-                <input type="submit" value="Add" class="btn btn-primary">
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+</div>
 
   <footer class="footer">
   </footer>
