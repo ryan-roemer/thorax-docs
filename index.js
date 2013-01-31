@@ -2,8 +2,17 @@ var http = require('http'),
     jsdom = require('jsdom'),
     fs = require('fs'),
     domToHtml = require('./lib/domToHtml').domToHtml,
-    path = require('path'),
-    exec = require('child_process').exec;
+    path = require('path');
+
+function exec(cmd, callback) {
+  console.log(cmd);
+  require('child_process').exec(cmd, function(error, stdout, stderr) {
+    error && process.stderr.write(error.toString());
+    stderr && process.stderr.write(stderr);
+    stdout && process.stdout.write(stdout);
+    callback(stdout);
+  });
+}
 
 function camelize(string) {
   string = string.replace(/(?:^|[-_])(\w)/g, function (_, c) {
@@ -12,33 +21,17 @@ function camelize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function compileMarkdown(file) {
-  var targetFilename = file.split('/').pop().replace(/\.md$/, '.html'),
-      isIndex = false,
-      title;
-  if (targetFilename === 'README.html') {
-    targetFilename = 'index.html';
-    isIndex = true;
-    title = 'Thorax: Backbone + Handlebars';
-  } else {
-    title = 'Thorax: ' + camelize(targetFilename.replace(/\.html$/,'')) + ' Plugin';
-  }
+function compileMarkdown(file, targetFileName) {
+  var title = 'Thorax: Backbone + Handlebars';
   var command = "curl -X POST --data-urlencode content@" + file + " --data-urlencode theme=v1 --data-urlencode name=\"" + title + "\" http://documentup.com/compiled?theme=v1";
   console.log(command);
-  exec(command, function(error, stdout, stderr) {
-    //console.log('stdout: ' + stdout);
-    console.log('stderr: ' + stderr);
-    if (error !== null) {
-      console.log('exec error: ' + error);
-    } else {
-      createWindow(stdout.toString(), function(window) {
-        modifyOutput(window, isIndex, targetFilename);
-        var filename = path.join(__dirname, 'public', targetFilename);
-        console.log('writing: ' + filename);
-        fs.writeFileSync(filename, domToHtml(window.document, true));
-
-      });
-    }
+  exec(command, function(stdout) {
+    createWindow(stdout.toString(), function(window) {
+      modifyOutput(window, true, targetFileName);
+      var filename = path.join(__dirname, 'public', targetFileName);
+      console.log('writing: ' + filename);
+      fs.writeFileSync(filename, domToHtml(window.document, true));
+    });
   });
 }
 
@@ -51,25 +44,11 @@ function modifyOutput(window, isIndex, targetFilename) {
       this.setAttribute('href', 'screen.css');
     }
   });
-  //append plugin TOC
-  window.$('#sections').after('<div class="header"><a href="#">Plugins</a></div><ul class="sections">' + files.map(function(file) {
-    if (!file.match(/\.md$/)) {
-      return '';
-    }
-    var pluginPath = file.replace(/\.md$/, '.html').split('/').pop();
-    if (pluginPath === 'README.html') {
-      return '';
-    }
-    var pluginName = pluginPath.replace(/\.html$/,'');
-    return '<li><a href="' + pluginPath + '">' + camelize(pluginName) + '</a></li>';
-  }).join('') + '</ul>')
+  
   //change header
-  if (!isIndex) {
-    window.$('#header a').html('Thorax').attr('href', 'index.html').append('<span>' + pluginName + ' Plugin</span>');
-  } else {
-    window.$('#header a').html('Thorax');
-    //window.$('#content h1:first').remove();
-  }
+  window.$('#header a').html('Thorax');
+  //window.$('#content h1:first').remove();
+
   //remove signatures from TOC
   window.$('#sections li a').each(function() {
     this.innerHTML = this.innerHTML.replace(/\*.+$/, '');
@@ -91,7 +70,7 @@ function modifyOutput(window, isIndex, targetFilename) {
   //window.$('script').last().remove();
 
   //append copyright
-  window.$('#content').append('<p>Copyright 2012 <a href="http://walmartlabs.com">@WalmartLabs</a></p>');
+  window.$('#content').append('<p>Copyright 2013 <a href="http://walmartlabs.com">@WalmartLabs</a></p>');
 }
 
 function createWindow(html, callback) {
@@ -107,15 +86,16 @@ if (!location) {
   throw new Error('Specify a location: node index.js path/to/thorax');
 }
 
-var files = [path.join(location, 'README.md')];
-
-fs.readdir(path.join(location, 'docs'), function(err, dir) {
-  files = files.concat(dir.map(function(item) {
-    return path.join(location, 'docs', item);
-  }));
-  files.forEach(function(file) {
-    if (file.match(/\.md$/)) {
-      compileMarkdown(file);
-    }
+// TODO: move to async.serial
+exec('cd src; grunt build', function() {
+  exec('cp -r ./src/index.html ./public/index.html', function() {
+    exec('cp -r ./src/img ./public/img', function() {
+      exec('cp -r ./src/css ./public/css', function() {
+        exec('cp -r ./src/js ./public/js', function() {
+          compileMarkdown(path.join(location, 'README.md'), 'docs.html');
+        });
+      });
+    });
   });
 });
+  

@@ -1,0 +1,11 @@
+@import 'breakpoint-1';
+
+.lt-ie8 {
+  .sidebar input {
+    display: none;
+  }
+
+  .example, .tutorial {
+    margin-top: -38px;
+  }
+}

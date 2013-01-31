@@ -2,6 +2,14 @@
   "name": "thorax-docs",
   "version": "0.0.1",
   "dependencies": {
-    "jsdom": "*"
+    "jsdom"		  : "*",
+    "grunt"       : "0.3.17",
+    "fs"          : "latest",
+    "path"        : "latest",
+    "which"       : "latest",
+    "connect"     : "latest",
+    "buffers"     : "latest",
+    "http-proxy"  : "latest",
+    "websocket"   : "latest"
   }
 }

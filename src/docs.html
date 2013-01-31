@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Thorax: Backbone + Handlebars</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/main.css">
+
+  <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+
+  <!--[if (lt IE 9) & (!IEMobile)]>
+  <script>yepnope('/css/ie.css')</script>
+  <![endif]-->
+</head>
+<body class="docs">
+<nav class="sidebar">
+  <h1 class="logo"><a href="/">Thor<span>a</span>x</a></h1>
+  <div class="search-container">
+    <label class="visuallyhidden" for="search">Jump to section:</label>
+    <input type="search" placeholder="Jump to Section" id="search" name="search">
+    <ul class="search-results">
+      <li><a href="">Registry: <span>templates</span></a></li>
+      <li><a class="" href="">Thorax.View: <span>template</span></a></li>
+      <li><a href="">View Helpers: <span>template</span></a></li>
+    </ul>
+  </div>
+  <ul class="sidebar-primary">
+    <li>
+      <a href="#registry">Registry</a>
+      <ul class="sidebar-secondary">
+        <li>
+          <a href="#registry/name-klass-prototype-name">name </a>
+        </li>
+        <li>
+          <a href="#registry/templates-thorax-templates">templates </a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="#thorax-view">Thorax.View</a>
+      <ul class="sidebar-secondary">
+        <li>
+          <a href="#thorax-view/children-view-children">children </a>
+        </li>
+        <li>
+          <a href="#thorax-view/parent-view-parent">parent </a>
+        </li>
+        <li>
+          <a href="#thorax-view/template-view-template">template </a>
+        </li>
+        <li>
+          <a href="#thorax-view/destroy-view-destroy-options">destroy </a>
+        </li>
+        <li>
+          <a href="#thorax-view/render-view-render-content">render </a>
+        </li>
+        <li>
+          <a href="#thorax-view/context-view-context">context </a>
+        </li>
+        <li>
+          <a href="#thorax-view/rendertemplate-view-rendertemplate-name-extracontext-ignoreerrors">renderTemplate </a>
+        </li>
+        <li>
+          <a href="#thorax-view/ensurerendered-view-ensurerendered">ensureRendered </a>
+        </li>
+        <li>
+          <a href="#thorax-view/html-view-html-content">html </a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="#view-helpers">View Helpers</a>
+      <ul class="sidebar-secondary">
+        <li>
+          <a href="#view-helpers/super-super">super </a>
+        </li>
+        <li>
+          <a href="#view-helpers/template-template-name-options">template </a>
+        </li>
+        <li>
+          <a href="#view-helpers/view-view-name-options">view </a>
+        </li>
+        <li>
+          <a href="#view-helpers/element-element-name-options">element </a>
+        </li>
+        <li>
+          <a href="#view-helpers/registerviewhelper-handlebars-registerviewhelper-name-viewclass-callback">registerViewHelper </a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="#util">Util</a>
+      <ul class="sidebar-secondary">
+        <li>
+          <a href="#util/tag-thorax-util-tag-name-htmlattributes-content-context">tag </a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="#$">$</a>
+      <ul class="sidebar-secondary">
+        <li>
+          <a href="#/view-event-target-view-options">$.view </a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="#events">Events</a>
+      <ul class="sidebar-secondary">
+        <li>
+          <a href="#events/destroyed-destroyed">destroyed </a>
+        </li>
+        <li>
+          <a href="#events/rendered-rendered">rendered </a>
+        </li>
+        <li>
+          <a href="#events/child-child-instance">child </a>
+        </li>
+        <li>
+          <a href="#events/helper-helper-name-args-helperview">helper </a>
+        </li>
+        <li>
+          <a href="#events/helper-name-helper-name-args-helperview">helper:name </a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="#html-attributes">HTML Attributes</a>
+    </li>
+    <li>
+      <a href="#command-line">Command Line</a>
+      <ul class="sidebar-secondary">
+        <li>
+          <a href="#command-line/build-thorax-build-target-plugin-plugin">build </a>
+        </li>
+        <li>
+          <a href="#command-line/templates-thorax-templates-templates-templates-js">templates </a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="#error-handling">Error Handling</a>
+      <ul class="sidebar-secondary">
+        <li>
+          <a href="#error-handling/onexception-thorax-onexception-name-error">onException </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+<div class="l-main primary-container">
+  <div class="primary">
+
+    <h2>Registry</h2>
+
+    <p>Thorax creates a special hash for each type of class to store all subclasses in your application. The use of <code>Thorax.Views</code> and <code>Thorax.templates</code> is required to allow the <code>view</code>, <code>template</code> and other helper methods to operate, but the use of the others are optional and provided for consistency.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Class</th>
+          <th>Registry</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Thorax.View</td>
+          <td>Thorax.Views</td>
+        </tr>
+        <tr>
+          <td>Thorax.Model</td>
+          <td>Thorax.Models</td>
+        </tr>
+        <tr>
+          <td>Thorax.Collection</td>
+          <td>Thorax.Collections</td>
+        </tr>
+        <tr>
+          <td>Thorax.Router</td>
+          <td>Thorax.Routers</td>
+        </tr>
+        <tr>
+          <td>templates</td>
+          <td>Thorax.templates</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>name <code>klass.prototype.name</code></h3>
+
+    <a href="" class="example">Example</a>
+    <a href="" class="tutorial">Tutorial</a>
+
+    <p>If a <code>name</code> property is passed to any Thorax classes' <code>extend</code> method the resulting class will be automatically set in the corresponding registry.</p>
+
+  <pre><code><span class="comment">//set class</span>
+  Thorax<span class="variable">.View</span><span class="variable">.extend</span>({
+    name: <span class="string">"my-view"</span>
+  });
+
+  <span class="comment">//get class</span>
+  Thorax<span class="variable">.Views</span>[<span class="string">"my-view"</span>]</code></pre>
+
+    <h3>templates <code>Thorax.templates</code></h3>
+
+    <a href="" class="example">Example</a>
+
+    <p>A hash of templates, used by various Thorax helpers. If using the node or Rails boilerplate projects this hash will be automatically generated from the files in your <code>templates</code> directories. To manually add a template to the hash:</p>
+
+  <pre><code>Thorax.templates[<span class="attribute">'my</span>-template-name'] = Handlebars.compile(<span class="attribute">'template</span> <span class="typename">string</span>');</code></pre>
+
+    <p>If a <code>View</code> has the same <code>name</code> as a template in the <code>templates</code> hash, it's `template' property will be automatically assigned.</p>
+
+    <h2>Thorax.View</h2>
+
+    <p>The base <code>Thorax.View</code> implementation is concerned only with Handlebars + Backbone integration. A variety of additional functionality is provided by the various included plugins. The boilerplate projects have a build of Thorax with all plugins included.</p>
+
+  <pre><code><span class="keyword">var</span> view = <span class="built_in">new</span> Thorax.View({
+    template: <span class="string">"{{key}}"</span>,
+    key: <span class="string">"value"</span>
+  });
+  view.render();
+  $(<span class="string">'body'</span>).<span class="built_in">append</span>(view.el);</code></pre>
+
+    <h3>children <code>view.children</code></h3>
+
+    <a href="" class="tutorial">Tutorial</a>
+
+    <p>A hash of child view's indexed by <code>cid</code>. Child views may become attached to the parent with the <code>view</code> helper or may be automatically attached <code>HelperView</code> instanced created by helpers created with <code>regsterViewHelper</code>.</p>
+
+    <h3>parent <code>view.parent</code></h3>
+
+    <p>If a view was embedded inside another with the <code>view</code> helper, or is a <code>HelperView</code> created by a helper creted with <code>registerViewHelper</code> the view will have a <code>parent</code> attribute.</p>
+
+    <h3>template <code>view.template</code></h3>
+
+    <p>Assign a template to a view. This may be a string or a function which recieves a single <code>context</code> argument and returns a string. If the view has a <code>name</code> and a template of the same <code>name</code> is available the <code>template</code> will be auto-assigned.</p>
+
+  <pre><code><span class="tag">new</span> <span class="tag">Thorax</span><span class="class">.View</span>(<span class="rules">{
+    <span class="rule"><span class="attribute">template</span>:<span class="value"> <span class="string">"{{key}}"</span>
+  </span>}</span></span>);</code></pre>
+
+    <h3>destroy <code>view.destroy([options])</code></h3>
+
+    <p>By default this will only call <code>destroy</code> on all child views. Other plugins override this method to implement custom cleanup behaviors. Your own behaviors can be added with the <code>destroyed</code> event. Pass <code>children: false</code> to this method to prevent the view's children from being destroyed.</p>
+
+  </div>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.2.min.js"><\/script>')</script>
+
+<script type="text/javascript" src="//use.typekit.net/vyf6wqz.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+<script src="js/compiled/site.min.js"></script>
+</body>
+</html>

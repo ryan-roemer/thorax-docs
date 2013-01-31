@@ -1,0 +1,27 @@
+.primary-container {
+  margin-left: 242px;
+}
+
+.primary {
+  padding: 2px 3em 1.5em;
+}
+
+.sidebar {
+  position: fixed;
+  width: 200px;
+  padding: 1.5em;
+
+  background-image: url('../img/sidebar.png');
+
+  .logo {
+    font-size: 3em;
+  }
+
+  input {
+    padding: 5px 8px;
+  }
+}
+
+.search-results a {
+  padding: 5px 8px;
+}
