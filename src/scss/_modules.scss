@@ -324,7 +324,10 @@
 .tagline {
   margin: 0;
 
+  font-family: kulturista-web,Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-weight: 300;
   text-shadow: 0 1px 0 #EEE;
+  -webkit-font-smoothing: antialiased;
 }
 
 .nav {
@@ -580,9 +583,38 @@ ul.links-sub {
   }
 }
 
+.tutorial-main {
+  width: 600px;
+  float: left;
+}
+
+.tutorial-sidebar {
+  float: left;
+  padding-left: 24px;
+  margin: 32px 0 0 24px;
+
+  border-left: 1px solid #ccc;
+}
+
+.tutorial-nav-header {
+  font-size: 1em;
+  margin-top: 6px;
+}
+
+.tutorial-nav {
+  padding: 0;
+  list-style: none;
+  font-size: 14px;
+
+  li {
+    margin-bottom: 0.5em;
+  }
+}
+
 .footer {
-  height: 5.5em;
-  padding-bottom: 1.5em;
+  margin-top: 5em;
+
+  text-align: center;
 }
 
 .tutorial, .example {

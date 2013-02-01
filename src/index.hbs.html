@@ -9,7 +9,7 @@
     <ul class="resources">
         <li><a class="btn icon icon-book" href="#">Tutorial</a></li>
         <li><a class="btn icon icon-play" href="#">Screencast</a></li>
-        <li><a class="btn icon icon-list" href="#">Documentation</a></li>
+        <li><a class="btn icon icon-list" href="/api.html">Documentation</a></li>
       </ul>
   </div>
 </div>
@@ -23,6 +23,49 @@
       <li><a class="ir used-by-metalab" href="http://metalabdesign.com">Metalab</a></li>
     </ul>
   </div>
+  <div class="l-row clearfix">
+    <div class="l-col2 clearfix">
+    <h3>Getting Started</h3>
+      <p>Thorax 2 is presently in beta, the <a href="">stable source</a> and <a href="">documentation</a> are still available.</p>
+
+      <p>Thorax can be used standalone in any JavaScript environment in addition to the boilerplate projects provided above.</p>
+
+<pre><code>var view = new Thorax<span class="preprocessor">.View</span>({
+  template: <span class="string">"Hello world!"</span>
+})<span class="comment">;</span>
+view<span class="preprocessor">.render</span>()<span class="comment">;</span>
+$(<span class="string">"body"</span>)<span class="preprocessor">.append</span>(view<span class="preprocessor">.el</span>)<span class="comment">;</span></code></pre>
+    </div>
+    <div class="l-col1">
+      <h3>Examples</h3>
+      <p>All of the examples use the <a href="">same sample data</a>.</p>
+      <ul class="links">
+        <li><a href="">Simple Todos</a></li>
+        <li><a href="">$.model</a></li>
+        <li><a href="">Context</a></li>
+        <li><a href="">View &amp; Template Helpers</a></li>
+        <li><a href="">Empty Helper</a></li>
+        <li><a href="">Freeze</a></li>
+        <li><a href="">LayoutView</a></li>
+        <li><a href="">registerViewHelper</a></li>
+      </ul>
+    </div>
+    <div class="l-col1">
+      <h3>Resources</h3>
+      <ul class="links">
+        <li>
+          <a href="">Thorax TodoMVC</a>
+          <ul class="links-sub">
+            <li><a href="">Standalone Source</a></li>
+            <li><a href="">Thorax + Lumbar Source</a></li>
+            <li><a href="">Thorax + Require.js Source</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
+
+
 
 {{include "includes/page-footer.html"}}

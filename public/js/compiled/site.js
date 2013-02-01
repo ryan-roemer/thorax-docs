@@ -1,3 +1,4 @@
+(function(){})();
 // Avoid `console` errors in browsers that lack a console.
 if (!(window.console && console.log)) {
     (function() {
