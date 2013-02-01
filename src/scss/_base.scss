@@ -28,6 +28,12 @@ body {
 
 .docs {
   background-image: url('../img/sidebar.png');
+
+  h2 {
+    font-family: kulturista-web,Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+  }
 }
 
 a {
@@ -60,10 +66,7 @@ code {
 
 h2 {
   font-size: 2em;
-  font-family: kulturista-web, Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-weight: 300;
   text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
 }
 
 h3 {
@@ -77,6 +80,10 @@ h3 {
     font-size: 13px;
     -webkit-font-smoothing: subpixel-antialiased;
   }
+}
+
+h4 {
+  border-bottom: 1px solid #ccc;
 }
 
 /*
