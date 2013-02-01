@@ -2,8 +2,6 @@
 module.exports = function(grunt) {
 
   grunt.file.copy('../thorax/README.md', './src/api.md');
-  grunt.file.copy('./src/js/vendor/jquery-1.8.2.min.js', './public/js/vendor/jquery-1.8.2.min.js');
-  grunt.file.copy('./src/js/vendor/modernizr-2.6.2.min.js', './public/js/vendor/modernizr-2.6.2.min.js');
 
   // Project configuration.
   grunt.initConfig({
