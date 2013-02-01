@@ -1,5 +1,5 @@
-Thorax Mobile Plugin
-====================
+Mobile Development
+==================
 
 The Thorax mobile plugin deals stricly with behavioral fixes for mobile web applications that make sense to implement in the View layer rather than directly in Zepto. In addition to this plugin the [mobile boilerplate project](https://github.com/walmartlabs/thorax-boilerplate) is provided which is a starter [Lumbar](http://walmartlabs.github.com/lumbar) project that includes this plugin and is set up to build for mobile environments.
 
