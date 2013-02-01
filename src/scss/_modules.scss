@@ -252,6 +252,8 @@
 
 .btn {
   display: inline-block;
+  zoom: 1;
+  *display: inline;
   padding: 8px 10px;
   position: relative;
 
@@ -301,16 +303,18 @@
 }
 
 .header {
-  padding: 8px 1.5em 6px;
+  min-width: 1008px;
+  padding: 8px 0 6px;
   margin-bottom: 6px;
 
   border-bottom: 6px solid $blue;
 }
 
 .hero {
+  min-width: 1008px;
   padding: 3em 0;
 
-  border: 1px solid #666;
+  border: 1px solid #999;
   border: 1px solid rgba(0,0,0,0.4);
   border-left: 0;
   border-right: 0;
@@ -414,6 +418,8 @@ ul.links-sub {
 
   li {
     display: inline-block;
+    zoom: 1;
+    *display: inline;
     margin-left: 2em;
 
     &:first-child {
@@ -466,6 +472,8 @@ ul.links-sub {
 
 .resources {
   display: inline-block;
+  zoom: 1;
+  *display: inline;
   padding: 0;
   margin-left: 3.33%;
   margin-top: 0;
@@ -476,6 +484,9 @@ ul.links-sub {
 
   li {
     display: inline-block;
+    zoom: 1;
+    *display: inline;
+
     margin-left: 1.5em;
   }
 }
