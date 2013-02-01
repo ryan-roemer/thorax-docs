@@ -1,3 +1,5 @@
+var fs = require('fs');
+
 module.exports = function(static) {
   static.handlebars.registerAsyncHelper('api-toc', function(options, complete) {
     static.transform('src/api.md', function(html) {
@@ -34,7 +36,20 @@ module.exports = function(static) {
       });
     });
   });
+
+  static.handlebars.registerHelper('tutorials-toc', function(options, complete) {
+    var output = '<ul>';
+    fs.readdirSync('src/tutorials').forEach(function(tutorial) {
+      output += '<li><a href="/tutorials/' + tutorial.replace(/\.md/, '.html') + '">' + titleFromTutorial('src/tutorials/' + tutorial) + '</a></li>'
+    });
+    output += '</ul>'
+    return new static.handlebars.SafeString(output);
+  });
 };
+
+function titleFromTutorial(tutorial) {
+  return fs.readFileSync(tutorial).toString().split('\n').shift();
+}
 
 function cleanSignatures(text) {
   return text.split('<').shift();

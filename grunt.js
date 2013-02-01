@@ -17,14 +17,25 @@ module.exports = function(grunt) {
     },
     static: {
       require: 'helpers.js',
-      build: {
-        'public/index.html': 'src/index.hbs.html',
-        'public/api.html': [
-          'src/includes/api-header.hbs.html',
-          'src/api.md',
-          'src/includes/api-footer.html'
-        ]
-      }
+      build: (function() {
+        var staticBuild = {
+          'public/index.html': 'src/index.hbs.html',
+          'public/api.html': [
+            'src/includes/api-header.hbs.html',
+            'src/api.md',
+            'src/includes/api-footer.html'
+          ],
+          'public/tutorials.html': 'src/tutorials.hbs.html'
+        };
+        require('fs').readdirSync('src/tutorials').forEach(function(tutorial) {
+          staticBuild['public/tutorials/' + tutorial.replace(/\.md$/, '.html')] = [
+            'src/includes/page-header.hbs.html',
+            'src/tutorials/' + tutorial,
+            'src/includes/page-footer.html'
+          ];
+        });
+        return staticBuild;
+      })()
     },
     concat: {
       dist: {
