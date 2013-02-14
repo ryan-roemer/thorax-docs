@@ -2,9 +2,15 @@ $(function() {
   var $searchEl = $('#search'),
       $apiLists = $('.sidebar-secondary'),
       $apiEntries = $('.sidebar-secondary li'),
-      $headings = $('.sidebar-primary > li');
+      $headings = $('.sidebar-primary > li'),
+      $searchReset = $('#search-reset');
 
-  $searchEl.keyup(updateSearch)
+  $searchEl.keyup(updateSearch);
+
+  $searchReset.click(function() {
+    $searchEl.val('');
+    stateChangeCallbacks.notSearching();
+  });
   
   function updateSearch() {
     var value = $searchEl.val().replace(/(^\s+|\s+$)/g, '').toLowerCase();
@@ -48,11 +54,13 @@ $(function() {
     searching: function() {
       state = 'searching';
       $apiLists.show();
+      $searchReset.show();
     },
     notSearching: function() {
       state = 'notSearching';
       $headings.show();
       $apiLists.hide();
+      $searchReset.hide();
     }
   };
   
