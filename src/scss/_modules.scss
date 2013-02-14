@@ -610,32 +610,20 @@ ul.links-sub {
   }
 }
 
-.tutorial-main {
-  width: 600px;
-  float: left;
-}
-
-.tutorial-sidebar {
-  float: left;
-  padding-left: 24px;
-  margin: 32px 0 0 24px;
-
-  border-left: 1px solid #ccc;
-}
-
-.tutorial-nav-header {
-  font-size: 1em;
-  margin-top: 6px;
-}
-
-.tutorial-nav {
-  padding: 0;
-  list-style: none;
-  font-size: 14px;
-
-  li {
-    margin-bottom: 0.5em;
+.tutorial-page {
+  h2 {
+    font-size: 1.5em;
   }
+
+  h3 {
+    font-size: 1.17em;
+  }
+}
+
+.tutorials-toc {
+  padding: 0;
+
+  list-style: none;
 }
 
 .footer {

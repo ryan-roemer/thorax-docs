@@ -38,9 +38,9 @@ module.exports = function(static) {
   });
 
   static.handlebars.registerHelper('tutorials-toc', function(options, complete) {
-    var output = '<ul>';
+    var output = '<ul class="tutorials-toc">';
     fs.readdirSync('src/tutorials').forEach(function(tutorial) {
-      output += '<li><a href="/tutorials/' + tutorial.replace(/\.md/, '.html') + '">' + titleFromTutorial('src/tutorials/' + tutorial) + '</a></li>'
+      output += '<li><h2><a href="/tutorials/' + tutorial.replace(/\.md/, '.html') + '">' + titleFromTutorial('src/tutorials/' + tutorial) + '</a></h2></li>'
     });
     output += '</ul>'
     return new static.handlebars.SafeString(output);
