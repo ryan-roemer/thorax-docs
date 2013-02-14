@@ -10,9 +10,9 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="/css/main.css">
 
-  <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+  <script src="/js/vendor/modernizr-2.6.2.min.js"></script>
   <script>
     var autoCompleteData = {{api-json}};
   </script>
@@ -22,14 +22,14 @@
   <![endif]-->
 </head>
 <body class="content">
-<header class="header clearfix">
+<header id="top" class="header clearfix">
   <div class="l-constrained">
     <h1 class="logo"><a href="/">Thor<span>a</span>x</a></h1>
 
     <nav class="nav">
       <ul>
         <li><a href="/api.html">Documentation</a></li>
-        <li><a href="">Tutorials</a></li>
+        <li><a href="/tutorials.html">Tutorials</a></li>
       </ul>
     </nav>
   </div>
@@ -42,6 +42,7 @@
       <button type="reset" id="search-reset" name="search-reset">Reset</button>
     </div>
     {{api-toc}}
+    <a class="top" href="#top"><span>&#x25B2;</span> Back to Top</a>
   </nav>
 
   <div class="l-main">

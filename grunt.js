@@ -31,9 +31,9 @@ module.exports = function(grunt) {
         };
         require('fs').readdirSync('src/tutorials').forEach(function(tutorial) {
           staticBuild['public/tutorials/' + tutorial.replace(/\.md$/, '.html')] = [
-            'src/includes/page-header.hbs.html',
+            'src/includes/tutorials-header.hbs.html',
             'src/tutorials/' + tutorial,
-            'src/includes/page-footer.html'
+            'src/includes/tutorials-footer.html'
           ];
         });
         return staticBuild;

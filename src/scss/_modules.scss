@@ -36,11 +36,7 @@
   @include background-image(-webkit-linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0)),url("../img/main.png"));
 }
 
-.primary {
-  max-width: 740px;
-  padding: 2px 1.5em 1.5em;
-
-  border-left: 6px solid $blue;
+.l-main {
 
   h3 {
     display: inline-block;
@@ -116,16 +112,14 @@
 #search-reset {
   position: absolute;
   top: 6px;
-  right: 2px;
-
-  width: 20px;
-  height: 20px;
+  right: 4px;
+  width: 18px;
+  height: 18px;
 
   border: 0;
 
   background-color: transparent;
   background-image: url('../img/reset.png');
-  background-size: 18px;
   background-repeat: no-repeat;
 
   text-indent: -999em;
@@ -206,6 +200,7 @@
 
 .sidebar-secondary {
   display: none;
+  margin: 0 0 1em;
 
   font-weight: normal;
   font-size: 14px;
@@ -219,6 +214,16 @@
     font-weight: normal;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: subpixel-antialiased;
+  }
+}
+
+.top {
+  color: #222;
+  font-weight: normal;
+  font-size: 12px;
+
+  span {
+    font-size: 8px;
   }
 }
 
@@ -605,32 +610,20 @@ ul.links-sub {
   }
 }
 
-.tutorial-main {
-  width: 600px;
-  float: left;
-}
-
-.tutorial-sidebar {
-  float: left;
-  padding-left: 24px;
-  margin: 32px 0 0 24px;
-
-  border-left: 1px solid #ccc;
-}
-
-.tutorial-nav-header {
-  font-size: 1em;
-  margin-top: 6px;
-}
-
-.tutorial-nav {
-  padding: 0;
-  list-style: none;
-  font-size: 14px;
-
-  li {
-    margin-bottom: 0.5em;
+.tutorial-page {
+  h2 {
+    font-size: 1.5em;
   }
+
+  h3 {
+    font-size: 1.17em;
+  }
+}
+
+.tutorials-toc {
+  padding: 0;
+
+  list-style: none;
 }
 
 .footer {
