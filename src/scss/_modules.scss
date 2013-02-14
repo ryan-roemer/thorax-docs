@@ -36,11 +36,7 @@
   @include background-image(-webkit-linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0)),url("../img/main.png"));
 }
 
-.primary {
-  max-width: 740px;
-  padding: 2px 1.5em 1.5em;
-
-  border-left: 6px solid $blue;
+.l-main {
 
   h3 {
     display: inline-block;
