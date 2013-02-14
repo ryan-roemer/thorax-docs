@@ -69,16 +69,12 @@
 }
 
 .sidebar {
-  float: left;
-  width: 164px;
-  height: 100%;
-  overflow: scroll;
-  -webkit-overflow-scrolling: touch;
-  padding: 1.5em 1em;
-  left: 0;
+  margin-left: 731px;
+  padding: 0 0 0 2em;
+  position: absolute;
+  width: 200px;
 
-  background-image: url('../img/sidebar.png');
-  background-attachment: local;
+  border-left: 1px solid #ccc;
 
   font-size: 14px;
   font-weight: bold;
@@ -105,20 +101,6 @@
       @include box-shadow(0 0 3px 2px rgb(123, 165, 226), inset 0 1px 1px 0px rgba(0,0,0,0.6));
     }
   }
-
-  .logo {
-    margin-bottom: 3px;
-    float: none;
-
-    font-size: 2em;
-    text-align: center;
-  }
-}
-
-.no-touch .sidebar {
-  position: fixed;
-
-  background-image: url('../img/sidebar.png');
 }
 
 .sidebar input:focus + .search-results {
@@ -127,6 +109,7 @@
 
 .search-container {
   width: 100%;
+  margin: 1em 0;
   position: relative;
 }
 
@@ -189,18 +172,12 @@
 }
 
 .sidebar-primary {
-  margin-bottom: 6em;
-
   a {
     display: block;
-    margin: 16px 0px;
+    margin: 8px 0px 0;
 
     color: #222;
     text-decoration: none;
-    font-family: kulturista-web, Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-weight: 600;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
 
     &:hover {
       text-decoration: underline;
@@ -209,6 +186,8 @@
 }
 
 .sidebar-secondary {
+  display: none;
+
   font-weight: normal;
   font-size: 14px;
 
