@@ -40,7 +40,7 @@ module.exports = function(static) {
   static.handlebars.registerHelper('tutorials-toc', function(options, complete) {
     var output = '<ul class="tutorials-toc">';
     fs.readdirSync('src/tutorials').forEach(function(tutorial) {
-      output += '<li><h3><a href="/tutorials/' + tutorial.replace(/\.md/, '.html') + '">' + titleFromTutorial('src/tutorials/' + tutorial) + '</a></h3></li>'
+      output += '<li><h2><a href="/tutorials/' + tutorial.replace(/\.md/, '.html') + '">' + titleFromTutorial('src/tutorials/' + tutorial) + '</a></h2></li>'
     });
     output += '</ul>'
     return new static.handlebars.SafeString(output);
