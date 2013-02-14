@@ -1,13 +1,21 @@
-(function(){})();
-// Avoid `console` errors in browsers that lack a console.
-if (!(window.console && console.log)) {
-    (function() {
-        var noop = function() {};
-        var methods = ['assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error', 'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log', 'markTimeline', 'profile', 'profileEnd', 'markTimeline', 'table', 'time', 'timeEnd', 'timeStamp', 'trace', 'warn'];
-        var length = methods.length;
-        var console = window.console = {};
-        while (length--) {
-            console[methods[length]] = noop;
-        }
-    }());
-}
+(function(){
+
+  var sidebar = $('.sidebar');
+  var sidebarTop = sidebar.offset().top;
+  var threshold = 24;
+
+  var positionSidebar = function() {
+    var docViewTop = $(window).scrollTop();
+
+    if (sidebarTop <= docViewTop + 24) {
+      sidebar.addClass('is-fixed');
+    } else {
+      sidebar.removeClass('is-fixed');
+    }
+  };
+
+  $(window).scroll(function() {
+    positionSidebar();
+  });
+
+})();
