@@ -20,23 +20,36 @@ $(function() {
       }
       $apiEntries.hide();
       // show all entries that match
-      var foundIds = [];
+      var foundIds = [],
+          foundTitles = [];
       for (var title in autoCompleteData) {
         var id = autoCompleteData[title];
         if (title.toLowerCase().search(value) !== -1) {
           foundIds.push(id);
-          $apiEntries.find('a[href="#' + id + '"]').parent().show();
+          foundTitles.push(title);
         }
       }
 
+      // show API entries
+      for (var i = 0; i < foundIds.length; ++i) {
+        var id = foundIds[i];
+        $apiLists.find('a[href="#' + id + '"]').parent().show();
+      }
+
+      // hide titles that have no API entries
       $headings.show();
-      // hide titles that are not visible
       $headings.each(function() {
         var $this = $(this);
         if (!$this.find('> ul > li:visible').length) {
           $this.hide();
         }
       });
+
+      // show titles that directly match
+      for (var i = 0; i < foundIds.length; ++i) {
+        var id = foundIds[i];
+        $headings.find('> a[href="#' + id + '"]').parent().show();
+      }
 
       // scroll to the found item if there was just one
       if (foundIds.length === 1) {
