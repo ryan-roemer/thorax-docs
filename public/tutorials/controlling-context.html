@@ -32,6 +32,13 @@
   </div>
 </header>
 <h1 id="controlling-context">Controlling Context</h1>
+<p>Add note about doing "explicit context" with:
+
+</p>
+<pre><code>_getContext: function() {
+  return getValue(this, 'context');
+}</code></pre>
+<p>meaning "this" won't ever get merged into the context.</p>
   <footer class="footer l-constrained">
     <p><small>Copyright 2012 <a href="http://walmartlabs.com">@WalmartLabs</a></small></p>
   </footer>
