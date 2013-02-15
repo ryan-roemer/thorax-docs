@@ -112,6 +112,8 @@ module.exports = function(grunt) {
     open( 'http://localhost:8000' );
   });
 
+  grunt.loadNpmTasks('static');
+
   // Extra Tasks
 
   grunt.loadTasks('grunt');
