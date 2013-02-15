@@ -3,7 +3,8 @@ $(function() {
       $apiLists = $('.sidebar-secondary'),
       $apiEntries = $('.sidebar-secondary li'),
       $headings = $('.sidebar-primary > li'),
-      $searchReset = $('#search-reset');
+      $searchReset = $('#search-reset'),
+      $sidebar = $('sidebar-primary');
 
   $searchEl.keyup(updateSearch);
 
@@ -53,7 +54,8 @@ $(function() {
 
       // scroll to the found item if there was just one
       if (foundIds.length === 1) {
-        window.scrollTo(0, $('#' + foundIds[0]).offset().top);
+        // use attribute syntax as ids may have "." in them
+        window.scrollTo(0, $('[id="' + foundIds[0] + '"]').offset().top);
       }
     } else {
       if (state === 'searching') {
