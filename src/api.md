@@ -1,14 +1,16 @@
 An opinionated, battle tested [Backbone](http://backbonejs.org/) + [Handlebars](http://handlebarsjs.com/) framework to build large scale web applications. 
 
-**Thorax 2 is presently in beta, the [stable source](https://github.com/walmartlabs/thorax/tree/1.2) and [documentation](http://walmartlabs.github.com/thorax/stable) are still available.**
-
-Thorax can be used standalone in any JavaScript environment in addition the [boilerplate projects](https://github.com/walmartlabs/thorax-boilerplate) provided above.
+Thorax can be used standalone in any JavaScript environment in addition the Node, Rails .
 
     var view = new Thorax.View({
       greeting: "Hello",
-      template: "{{greeting}} world!"
+      template: Handlebars.compile("{{greeting}} world!")
     });
     view.appendTo('body');
+
+- add note about CDN availability
+- add note about cloning thorax-seed
+- add mobile, standalone and rails downloads
 
 ## Registry
 
@@ -65,7 +67,7 @@ By default all instance properties are available in the template context. So whe
 Assign a template to a view. This may be a string or a function which recieves a single `context` argument and returns a string. If the view has a `name` and a template of the same `name` is available the `template` will be auto-assigned.
 
     new Thorax.View({
-      template: "{{key}}"
+      template: Handlebars.compile("{{key}}")
     });
 
 ### render *view.render([content])*
@@ -83,7 +85,7 @@ Renders the view's `template` updating the view's `el` with the result, triggeri
 Used by `render` to determine what attributes are available in the view's `template`. The default context function returns `this` + `this.model.attributes` if a `model` is present on the view. The `context` method may be overriden to provide a custom context:
 
     new Thorax.View({
-      template: '{{key}}',
+      template: Handlebars.compile('{{key}}'),
       context: function() {
         return _.defaults(this.model.attributes, {
           key: 'value'
@@ -378,7 +380,7 @@ Equivelent to calling `removeItem` then `appendItem`. Note that this is mainly m
 
 ## Thorax.Util
 
-### tag *Thorax.Util.tag(name, htmlAttributes [,content] [,expand-tokens])*
+### tag *Thorax.Util.tag(name, htmlAttributes [,content] [,context])*
 
 Generate an HTML string. All built in HTML generation uses this method. If `context` is passed any Handlebars references inside of the htmlAttributes values will rendered with the context.
 
@@ -706,7 +708,7 @@ As a result the following two views are equivelenet:
       itemContext: function(model, i) {
         return model.attributes;
       },
-      template: '{{collection}}'
+      template: Handlebars.compile('{{collection}}')
     });
 
     // directly create collection view, no property
@@ -719,7 +721,7 @@ As a result the following two views are equivelenet:
           return model.attributes;
         }
       }),
-      template: '{{view collectionView}}'
+      template: Handlebars.compile('{{view collectionView}}')
     });
 
 ### empty *{{#empty [modelOrCollection]}}*
