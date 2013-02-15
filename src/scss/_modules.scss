@@ -65,6 +65,13 @@
       white-space: nowrap;
     }  
   }
+
+  p > code,
+  li > code {
+    border-radius: 3px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+  }
 }
 
 .sidebar {
