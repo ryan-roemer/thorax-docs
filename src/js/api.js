@@ -13,8 +13,14 @@ $(function() {
     stateChangeCallbacks.notSearching();
   });
   
+  function escapeRegExp(str) {
+    return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+  }
+
   function updateSearch() {
-    var value = $searchEl.val().replace(/(^\s+|\s+$)/g, '').toLowerCase();
+    var value = $searchEl.val().replace(/(^\s+|\s+$)/g, '').toLowerCase(),
+        valueRegexp = new RegExp(escapeRegExp(value));
+
     if (value) {
       if (state === 'notSearching') {
         stateChangeCallbacks.searching();
@@ -25,7 +31,7 @@ $(function() {
           foundTitles = [];
       for (var title in autoCompleteData) {
         var id = autoCompleteData[title];
-        if (title.toLowerCase().search(value) !== -1) {
+        if (title.toLowerCase().search(valueRegexp) !== -1) {
           foundIds.push(id);
           foundTitles.push(title);
         }
