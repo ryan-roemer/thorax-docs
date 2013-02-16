@@ -10,6 +10,12 @@
    Base styles: opinionated defaults
    ========================================================================== */
 
+.wf-loading {
+  h1, h2, h3, h4, h5, h6, p, ul, ol, a {
+    visibility: hidden;
+  }
+}
+
 html,
 button,
 input,
