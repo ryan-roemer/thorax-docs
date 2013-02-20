@@ -68,7 +68,9 @@ $(function() {
 
 });
 
-(function(){
+$(function() {
+
+  // Fix API sidebar position on scroll
 
   var sidebar = $('.sidebar');
   var threshold = 24;
@@ -91,4 +93,27 @@ $(function() {
     });
   }
 
-})();
+
+  // Toggle tutorial video display
+
+  var hero = $('.hero'),
+      videoButton = $('.js-screencast');
+
+  if (hero.length > 0) {
+    hero.height( hero.outerHeight() );
+
+    var toggleVideo = function() {
+      if ( !hero.hasClass('has-video') && !hero.hasClass('no-video') ) {
+        hero.addClass('has-video');
+      } else {
+        hero.toggleClass('has-video no-video');
+      }
+    };
+
+    videoButton.on('click', function(e) {
+      e.preventDefault();
+      toggleVideo();
+    });
+  }
+
+});
