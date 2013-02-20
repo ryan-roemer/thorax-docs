@@ -67,9 +67,9 @@ Thorax.View.extend({
 <p>This behavior can be disabled by calling <code>Thorax.configureFastClick(false)</code>. If you need to mix and match fast and slow clicks, fall back to Zepto directly:
 
 </p>
-<pre><code>//fast-click is implemented in the View class
-//layer and not directly on Zepto
-$('selector').on('click', function() {})</code></pre>
+<pre><code><span class="comment">//fast-click is implemented in the View class</span>
+<span class="comment">//layer and not directly on Zepto</span>
+$(<span class="string">'selector'</span>).on(<span class="string">'click'</span>, <span class="keyword">function</span>() {})</code></pre>
 <h3 id="configure-fast-click">configureFastClick <em>Thorax.configureFastClick(useFastClick)</em></h3>
 <p>Sets the boolean <code>useFastClick</code> for wether or not to use the fast click implementation provided by thorax. Defaults to true.
 
@@ -81,7 +81,7 @@ $('selector').on('click', function() {})</code></pre>
 <p>The following selector is used to apply tap highlight behaviors to elements inside <code>Thorax.View</code> instances:
 
 </p>
-<pre><code>[data-tappable=true], a, input, button, select, textarea</code></pre>
+<pre><code>[data-tappable=<span class="literal">true</span>], a, input, button, select, textarea</code></pre>
 <h3 id="data-tappable">data-tappable <em>data-tappable="true"</em></h3>
 <p>Add this attribute to any HTML tag to apply tap highlight behaviors to it.
 
@@ -112,7 +112,7 @@ $('selector').on('click', function() {})</code></pre>
 <p><code>callbackEnd</code> is called after the user moves from their initial tapped position or lets go of the screen. Note that this function is not called unless the <code>callbackStart</code> is called first.
 
 </p>
-<pre><code>view.$el.tapHoldAndEnd('a', function(){}, function(){});</code></pre>
+<pre><code>view.$el.tapHoldAndEnd(<span class="string">'a'</span>, <span class="keyword">function</span>(){}, <span class="keyword">function</span>(){});</code></pre>
 <h2 id="scrolling">Scrolling</h2>
 <p>These utility methods normalize two bugs present in mobile environments:
 
