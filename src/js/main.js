@@ -27,16 +27,21 @@ $(function() {
   // Toggle tutorial video display
 
   var hero = $('.hero'),
+      video = $('.video').find('iframe')[0],
+      player = $f(video),
       videoButton = $('.js-screencast');
 
   if (hero.length > 0) {
     hero.height( hero.outerHeight() );
 
     var toggleVideo = function() {
-      if ( !hero.hasClass('has-video') && !hero.hasClass('no-video') ) {
-        hero.addClass('has-video');
+      if ( !hero.hasClass('has-video') || hero.hasClass('no-video') ) {
+        hero.addClass('has-video')
+            .removeClass('no-video');
       } else {
-        hero.toggleClass('has-video no-video');
+        hero.removeClass('has-video')
+            .addClass('no-video');
+        player.api('pause');
       }
     };
 
