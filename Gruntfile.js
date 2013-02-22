@@ -63,7 +63,7 @@ module.exports = function(grunt) {
     },
     watch: {
       files: ['src/css/scss/*.scss', 'src/*.hbs.html', 'src/includes/*'],
-      tasks: 'static:docs compass:build concat'
+      tasks: ['static:docs','compass:build','concat']
     },
     compass: {
       build: {
