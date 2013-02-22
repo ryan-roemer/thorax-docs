@@ -910,16 +910,3 @@ Bound DOM event handlers in Thorax are wrapped with a try / catch block, calling
     };
 
 Override this function with your own logging / debugging handler. `name` will be the event name where the error was thrown.
-
-## Command Line
-
-To use the command line utilities:
-
-    npm install -g thorax
-
-### templates *thorax templates ./templates ./templates.js*
-
-If using Thorax outside of the provided node or Rails downloads you can inline a directory of templates into a single file by running the `thorax templates` command.
-
-    npm install -g thorax
-    thorax templates ./templates-dir ./templates.js
