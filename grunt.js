@@ -18,26 +18,33 @@ module.exports = function(grunt) {
       files: ['js/main.js']
     },
     static: {
-      require: 'helpers.js',
-      build: (function() {
-        var staticBuild = {
-          'public/index.html': 'src/index.hbs.html',
-          'public/api.html': [
-            'src/includes/api-header.hbs.html',
-            'src/api.md',
-            'src/includes/api-footer.html'
-          ],
-          'public/tutorials.html': 'src/tutorials.hbs.html'
-        };
-        require('fs').readdirSync('src/tutorials').forEach(function(tutorial) {
-          staticBuild['public/tutorials/' + tutorial.replace(/\.md$/, '.html')] = [
-            'src/includes/tutorials-header.hbs.html',
-            'src/tutorials/' + tutorial,
-            'src/includes/tutorials-footer.html'
-          ];
-        });
-        return staticBuild;
-      })()
+      docs: {
+        require: 'helpers.js',
+        build: (function() {
+          var staticBuild = {
+            'public/index.html': 'src/index.hbs.html',
+            'public/api.html': [
+              'src/includes/api-header.hbs.html',
+              'src/api.md',
+              'src/includes/api-footer.html'
+            ],
+            'public/tutorials.html': 'src/tutorials.hbs.html'
+          };
+          require('fs').readdirSync('src/tutorials').forEach(function(tutorial) {
+            staticBuild['public/tutorials/' + tutorial.replace(/\.md$/, '.html')] = [
+              {
+                file: 'src/includes/tutorials-header.hbs.html',
+                context: {
+                  name: tutorial.replace(/\.md$/, '')
+                }
+              },
+              'src/tutorials/' + tutorial,
+              'src/includes/tutorials-footer.html'
+            ];
+          });
+          return staticBuild;
+        })()
+      }
     },
     concat: {
       dist: {
@@ -105,8 +112,9 @@ module.exports = function(grunt) {
   });
 
   // Default task.
-  grunt.registerTask('default', 'static build server open-browser reload watch');
+  grunt.registerTask('default', 'static:docs build server open-browser reload watch');
   grunt.registerTask('build', 'compass lint concat min img');
+
   grunt.registerTask('open-browser', function() {
     var open = require('open');
     open( 'http://localhost:8000' );
