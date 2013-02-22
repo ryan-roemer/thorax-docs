@@ -7,15 +7,24 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
+    copy: {
+      main: {
+        files: [
+          {
+            src: ["*"],
+            dest: "./public/img/",
+            cwd: "./src/img/",
+            expand: true
+          }
+        ]
+      }
+    },
     meta: {
       version: '0.1.0',
       banner: '/*! Thorax - v<%= meta.version %> - ' +
         '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
         '* Copyright (c) <%= grunt.template.today("yyyy") %> ' +
         'Thorax; Licensed MIT */'
-    },
-    lint: {
-      files: ['js/main.js']
     },
     static: {
       docs: {
@@ -52,15 +61,9 @@ module.exports = function(grunt) {
         dest: 'public/js/compiled/site.js'
       }
     },
-    min: {
-      dist: {
-        src: ['<banner:meta.banner>', '<config:concat.dist.dest>'],
-        dest: 'public/js/compiled/site.min.js'
-      }
-    },
     watch: {
-      files: ['<config:lint.files>', 'src/css/scss/*.scss', 'src/*.hbs.html', 'src/includes/*'],
-      tasks: 'static compass:build lint concat min reload'
+      files: ['src/css/scss/*.scss', 'src/*.hbs.html', 'src/includes/*'],
+      tasks: 'static:docs compass:build concat'
     },
     compass: {
       build: {
@@ -71,20 +74,12 @@ module.exports = function(grunt) {
         forcecompile: true
       }
     },
-    reload: {
-      port: 35729,
-      liveReload: {},
-      proxy: {
-        host: 'localhost',
-        port: 8000
-      },
-    },
-    server: {
-      base: './public'
-    },
-    img: {
-      png: {
-        src: ['public/img/*.png']
+    connect: {
+      server: {
+        options: {
+          port: 8000,
+          base: './public'
+        }
       }
     },
     jshint: {
@@ -107,20 +102,22 @@ module.exports = function(grunt) {
         $: true,
         _: true
       }
-    },
-    uglify: {}
+    }
   });
 
   // Default task.
-  grunt.registerTask('default', 'static:docs build server open-browser reload watch');
-  grunt.registerTask('build', 'compass lint concat min img');
+  grunt.registerTask('default', ['copy:main','static:docs','build','connect:server','open-browser','watch']);
+  grunt.registerTask('build', ['compass','concat']);
 
   grunt.registerTask('open-browser', function() {
     var open = require('open');
     open( 'http://localhost:8000' );
   });
 
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('static');
 
   // Extra Tasks
