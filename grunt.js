@@ -120,6 +120,7 @@ module.exports = function(grunt) {
     open( 'http://localhost:8000' );
   });
 
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('static');
 
   // Extra Tasks
