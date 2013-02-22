@@ -1,4 +1,9 @@
-@import 'breakpoint-1';
+.lt-ie9 {
+  body {
+    min-width: 1200px;
+    position: relative;
+  }
+}
 
 .lt-ie8 {
   .sidebar input {
