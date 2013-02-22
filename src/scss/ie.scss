@@ -8,14 +8,24 @@
   .example, .tutorial {
     margin-top: -38px;
   }
-}
 
-.lt-ie8 {
   .used-by-list {
     padding-bottom: 14px;
   }
 
   .resources li {
     margin-bottom: 8px;
+  }
+
+  .hero.no-video .video {
+    display: none;
+  }
+
+  .hero.has-video .video {
+    display: block;
+  }
+
+  .video {
+    position: relative;
   }
 }

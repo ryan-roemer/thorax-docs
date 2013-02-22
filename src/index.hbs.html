@@ -1,16 +1,23 @@
 {{include "includes/page-header.hbs.html" title="Thorax: Backbone + Handlebars"}}
 
 <div class="hero clearfix">
-  <div class="l-constrained">
+  <div class="hero-content l-constrained">
     <h2 class="tagline">An opinionated, battle-tested <a href="http://backbonejs.org/">Backbone</a> + <a href="http://handlebarsjs.com">Handlebars</a> framework to build large scale web applications.</h2>
 
     <a class="btn btn-primary btn-large" href="https://github.com/walmartlabs/thorax-boilerplate/raw/master/release.zip">Download 2.0.0rc2</a>
 
     <ul class="resources">
-        <!--<li><a class="btn icon icon-play" href="#">Screencast</a></li>-->
+        <li><a class="btn icon icon-play js-screencast" href="#">Screencast</a></li>
         <li><a class="btn icon icon-list" href="/api.html">API Reference</a></li>
         <li><a class="btn icon icon-book" href="/tutorials.html">Tutorials</a></li>
       </ul>
+  </div>
+  <div class="video">
+    <div class="l-constrained">
+      <a href="#" class="close-btn js-screencast">Close Video</a>
+      <!-- Vimeo Embed src must include &amp;api=1 at the end -->
+      <div class="video-container"><iframe src="http://player.vimeo.com/video/59338758?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;api=1" width="600" height="338" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>
+    </div>
   </div>
 </div>
 
@@ -24,34 +31,37 @@
     </ul>
   </div>
   <div class="l-row clearfix">
-    <div class="l-col2 clearfix">
-    <h3>Getting Started</h3>
-      <p>Thorax 2 is presently in beta, the <a href="">stable source</a> and <a href="">documentation</a> are still available.</p>
+    <div class="l-col3">
+      <div class="l-col2 l-nested-first clearfix">
+      <h3>Getting Started</h3>
+        <p>Thorax 2 is presently in beta, the <a href="">stable source</a> and <a href="">documentation</a> are still available.</p>
 
-      <p>Thorax can be used standalone in any JavaScript environment in addition to the boilerplate projects provided above.</p>
+        <p>Thorax can be used standalone in any JavaScript environment in addition to the boilerplate projects provided above.</p>
 
 <pre><code>var view = new Thorax<span class="preprocessor">.View</span>({
   template: <span class="string">"Hello world!"</span>
 })<span class="comment">;</span>
 view<span class="preprocessor">.render</span>()<span class="comment">;</span>
 $(<span class="string">"body"</span>)<span class="preprocessor">.append</span>(view<span class="preprocessor">.el</span>)<span class="comment">;</span></code></pre>
-    </div>
-    <div class="l-col1">
-      <h3>Examples</h3>
-      <p>All of the examples use the <a href="">same sample data</a>.</p>
-      <ul class="links">
-        <li><a href="">Simple Todos</a></li>
-        <li><a href="">$.model</a></li>
-        <li><a href="">Context</a></li>
-        <li><a href="">View &amp; Template Helpers</a></li>
-        <li><a href="">Empty Helper</a></li>
-        <li><a href="">Freeze</a></li>
-        <li><a href="">LayoutView</a></li>
-        <li><a href="">registerViewHelper</a></li>
-      </ul>
+      </div>
+      <div class="l-col1">
+        <h3>Examples</h3>
+        <ul class="links examples">
+          <li><a href="">Simple Todos</a></li>
+          <li><a href="">$.model</a></li>
+          <li><a href="">Context</a></li>
+          <li><a href="">View &amp; Template Helpers</a></li>
+          <li><a href="">Empty Helper</a></li>
+          <li><a href="">Freeze</a></li>
+          <li><a href="">LayoutView</a></li>
+          <li><a href="">registerViewHelper</a></li>
+        </ul>
+        <p class="note">All of the examples use the <a href="">same sample data</a>.</p>
+      </div>
     </div>
     <div class="l-col1">
       <h3>Resources</h3>
+<<<<<<< HEAD
       <h4>TodoMVC</h4>
       <p>See the <a href="http://addyosmani.github.com/todomvc/labs/architecture-examples/thorax/">TodoMVC Thorax</a> implementation and it's <a href="https://github.com/addyosmani/todomvc/tree/gh-pages/labs/architecture-examples/thorax">source code</a>. There is also a <a href="https://github.com/addyosmani/todomvc/tree/gh-pages/labs/dependency-examples/thorax_lumbar">Lumbar flavored version</a> of the implementation.</p>
       <h4>Backbone Fundamentals</h4>
@@ -70,6 +80,13 @@ $(<span class="string">"body"</span>)<span class="preprocessor">.append</span>(v
         <li><a href="http://cdnjs.cloudflare.com/ajax/libs/thorax/2.0.0rc1/thorax.min.js">Thorax 2.0.0rc1 Minified</a></li>
         <li><a href="http://cdnjs.cloudflare.com/ajax/libs/thorax/2.0.0rc1/thorax-mobile.min.js">Thorax Mobile 2.0.0rc1</a></li>
         <li><a href="http://cdnjs.cloudflare.com/ajax/libs/thorax/2.0.0rc1/thorax-mobile.min.js">Thorax Mobile 2.0.0rc1 Minified</a></li>
+=======
+      <ul class="links">
+        <li>
+          <h4 class="link-heading"><a href="">Thorax TodoMVC</a></h4>
+          <p class="link-summary">A project which offers the same Todo application implemented using MV* concepts in most of the popular JavaScript MV* frameworks of today.</p>
+        </li>
+>>>>>>> 06f6ab918854cb042912a998a2e8837fb192a748
       </ul>
       <h4>Thorax Seed</h4>
       <p>Thorax projects can also be created by forking or cloning the <a href="https://github.com/walmartlabs/thorax-seed">thorax-seed repository</a>.</p>
