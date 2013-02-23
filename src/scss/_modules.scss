@@ -36,6 +36,12 @@
   @include background-image(-webkit-linear-gradient(rgba(255,255,255,0.5),rgba(255,255,255,0)),url("../img/main.png"));
 }
 
+.quick-start {
+  li {
+    font-size: 0.85em;
+  }
+}
+
 .l-main {
 
   h3 {

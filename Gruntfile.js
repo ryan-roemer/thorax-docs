@@ -1,7 +1,6 @@
 /*global module:false*/
 module.exports = function(grunt) {
 
-  grunt.file.copy('../thorax/README.md', './src/api.md');
   grunt.file.copy('./src/js/vendor/jquery-1.8.2.min.js', './public/js/vendor/jquery-1.8.2.min.js');
   grunt.file.copy('./src/js/vendor/modernizr-2.6.2.min.js', './public/js/vendor/modernizr-2.6.2.min.js');
 
@@ -34,23 +33,11 @@ module.exports = function(grunt) {
             'public/index.html': 'src/index.hbs.html',
             'public/api.html': [
               'src/includes/api-header.hbs.html',
-              'src/api.md',
+              'src/content/api.md',
               'src/includes/api-footer.html'
             ],
-            'public/tutorials.html': 'src/tutorials.hbs.html'
+            'public/start.html': 'src/start.hbs.html'
           };
-          require('fs').readdirSync('src/tutorials').forEach(function(tutorial) {
-            staticBuild['public/tutorials/' + tutorial.replace(/\.md$/, '.html')] = [
-              {
-                file: 'src/includes/tutorials-header.hbs.html',
-                context: {
-                  name: tutorial.replace(/\.md$/, '')
-                }
-              },
-              'src/tutorials/' + tutorial,
-              'src/includes/tutorials-footer.html'
-            ];
-          });
           return staticBuild;
         })()
       }
@@ -106,7 +93,7 @@ module.exports = function(grunt) {
   });
 
   // Default task.
-  grunt.registerTask('default', ['copy:main','static:docs','build','connect:server','open-browser','watch']);
+  grunt.registerTask('default', ['process-readme', 'copy:main','static:docs','build','connect:server','open-browser','watch']);
   grunt.registerTask('build', ['compass','concat']);
 
   grunt.registerTask('open-browser', function() {

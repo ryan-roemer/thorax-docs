@@ -8,8 +8,8 @@
 
     <ul class="resources">
         <li><a class="btn icon icon-play js-screencast" href="http://vimeo.com/60230630">Screencast</a></li>
+        <li><a class="btn icon icon-book" href="/start.html">Getting Started</a></li>
         <li><a class="btn icon icon-list" href="/api.html">API Reference</a></li>
-        <li><a class="btn icon icon-book" href="/tutorials.html">Tutorials</a></li>
       </ul>
   </div>
   <div class="video">
@@ -33,55 +33,19 @@
   <div class="l-row clearfix">
     <div class="l-col3">
       <div class="l-col2 l-nested-first clearfix">
-      <h3>Getting Started</h3>
-        <p>Thorax 2 is presently in beta, the <a href="">stable source</a> and <a href="">documentation</a> are still available.</p>
-
-        <p>Thorax can be used standalone in any JavaScript environment in addition to the boilerplate projects provided above.</p>
-
-<pre><code>var view = new Thorax<span class="preprocessor">.View</span>({
-  template: <span class="string">"Hello world!"</span>
-})<span class="comment">;</span>
-view<span class="preprocessor">.render</span>()<span class="comment">;</span>
-$(<span class="string">"body"</span>)<span class="preprocessor">.append</span>(view<span class="preprocessor">.el</span>)<span class="comment">;</span></code></pre>
+        {{include "content/features.md"}}
       </div>
-      <div class="l-col1">
-        <h3>Examples</h3>
+      <div class="l-col1 features">
+        <h3>Features</h3>
         <ul class="links examples">
-          <li><a href="">Simple Todos</a></li>
-          <li><a href="">$.model</a></li>
-          <li><a href="">Context</a></li>
-          <li><a href="">View &amp; Template Helpers</a></li>
-          <li><a href="">Empty Helper</a></li>
-          <li><a href="">Freeze</a></li>
-          <li><a href="">LayoutView</a></li>
-          <li><a href="">registerViewHelper</a></li>
+          {{#include "content/features.md" select="h2"}}
+            <li><a href="#{{id}}">{{innerHTML}}</a></li>
+          {{/include}}
         </ul>
-        <p class="note">All of the examples use the <a href="">same sample data</a>.</p>
       </div>
     </div>
-    <div class="l-col1">
-      <h3>Resources</h3>
-      <h4>TodoMVC</h4>
-      <p>See the <a href="http://addyosmani.github.com/todomvc/labs/architecture-examples/thorax/">TodoMVC Thorax</a> implementation and it's <a href="https://github.com/addyosmani/todomvc/tree/gh-pages/labs/architecture-examples/thorax">source code</a>. There is also a <a href="https://github.com/addyosmani/todomvc/tree/gh-pages/labs/dependency-examples/thorax_lumbar">Lumbar flavored version</a> of the implementation.</p>
-      <h4>Backbone Fundamentals</h4>
-      <p>The new O'Reilly book includes chapters on <a href="http://addyosmani.github.com/backbone-fundamentals/#thorax">Thorax</a> and covers <a href="http://walmartlabs.github.com/lumbar">Lumbar</a>'s approach to <a href="http://addyosmani.github.com/backbone-fundamentals/#route-based-module-loading">route based module loading</a>.</p>
-      <h4>Boilerplate Projects</h4>
-      <p>In addition to our favored <a href="https://github.com/walmartlabs/thorax-boilerplate/raw/master/thorax-lumbar.zip">Node + Lumbar</a> environment, boilerplate projects are available for:</p>
-      <ul>
-        <li><a href="https://github.com/walmartlabs/thorax-boilerplate/raw/master/thorax-html.zip">Standalone HTML</a></li>
-        <li><a href="https://github.com/walmartlabs/thorax-boilerplate/raw/master/thorax-rails.zip">Rails</a></li>
-        <li><a href="https://github.com/walmartlabs/thorax-boilerplate/raw/master/thorax-mobile.zip">Mobile</a></li>
-      </ul>
-      <h4>CDN Availability</h4>
-      <p>Thorax (and it's dependencies) are available on CloudFlare's CDN:</p>
-      <ul>
-        <li><a href="http://cdnjs.cloudflare.com/ajax/libs/thorax/2.0.0rc1/thorax.js">Thorax 2.0.0rc1</a></li>
-        <li><a href="http://cdnjs.cloudflare.com/ajax/libs/thorax/2.0.0rc1/thorax.min.js">Thorax 2.0.0rc1 Minified</a></li>
-        <li><a href="http://cdnjs.cloudflare.com/ajax/libs/thorax/2.0.0rc1/thorax-mobile.min.js">Thorax Mobile 2.0.0rc1</a></li>
-        <li><a href="http://cdnjs.cloudflare.com/ajax/libs/thorax/2.0.0rc1/thorax-mobile.min.js">Thorax Mobile 2.0.0rc1 Minified</a></li>
-      </ul>
-      <h4>Thorax Seed</h4>
-      <p>Thorax projects can also be created by forking or cloning the <a href="https://github.com/walmartlabs/thorax-seed">thorax-seed repository</a>.</p>
+    <div class="l-col1 quick-start">
+      {{include "content/quick-start.md"}}
     </div>
   </div>
 </div>

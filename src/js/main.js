@@ -51,4 +51,26 @@ $(function() {
     });
   }
 
+  // features toggle
+  $('.features li').click(function(event) {
+    event.preventDefault();
+    var id = $(this).find('a').attr('href');
+    hideFeatures();
+    toggleFeature(id, true);
+  });
+
+  function hideFeatures() {
+    $('.features li').each(function() {
+      toggleFeature($(this).find('a').attr('href'), false);
+    });
+  }
+  hideFeatures();
+
+  function toggleFeature(id, show) {
+    var elements = $(id).add($(id).nextUntil('h2'));
+    elements.toggle(show);
+  }
+
+  toggleFeature($('.features li:first a').attr('href'), true);
+
 });

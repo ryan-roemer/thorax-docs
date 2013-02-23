@@ -1,2 +1,0 @@
-Yielding Templates
-==================

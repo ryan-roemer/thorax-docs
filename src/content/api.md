@@ -1,16 +1,4 @@
-An opinionated, battle tested [Backbone](http://backbonejs.org/) + [Handlebars](http://handlebarsjs.com/) framework to build large scale web applications. 
-
-Thorax can be used standalone in any JavaScript environment in addition the Node, Rails .
-
-    var view = new Thorax.View({
-      greeting: "Hello",
-      template: Handlebars.compile("{{greeting}} world!")
-    });
-    view.appendTo('body');
-
-- add note about CDN availability
-- add note about cloning thorax-seed
-- add mobile, standalone and rails downloads
+# API Reference
 
 ## Registry
 
