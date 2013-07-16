@@ -3,12 +3,19 @@ var fs = require('fs');
 module.exports = function(static) {
   static.handlebars.registerAsyncHelper('api-toc', function(options, complete) {
     static.transform('src/content/api.md', function(html) {
-      static.$(html, function(window) {
+      static.$(html, function($) {
         var output = '<ul class="sidebar-primary">';
-        var $ = window.$;
         $('h2').each(function() {
           output += '<li><a href="#' + $(this).attr('id') + '">' + cleanSignatures($(this).html()) + '</a>';
-          var h3s = $(this).nextUntil("h2", "h3");
+          var h3s = [];
+          $(this).nextAll().each(function() {
+            if ($(this).is('h3')) {
+              return false;
+            } else {
+              h3s.push(this);
+            }
+          });
+          h3s = $(h3s);
           if (h3s.length) {
             output += '<ul class="sidebar-secondary">';
             h3s.each(function() {
@@ -27,8 +34,7 @@ module.exports = function(static) {
   static.handlebars.registerAsyncHelper('api-json', function(options, complete) {
     var json = {};
     static.transform('src/content/api.md', function(html) {
-      static.$(html, function(window) {
-        var $ = window.$;
+      static.$(html, function($) {
         $('h2, h3').each(function() {
           json[cleanSignatures($(this).html())] = $(this).attr('id');
         });
@@ -55,5 +61,3 @@ function titleFromTutorial(tutorial) {
 function cleanSignatures(text) {
   return text.split('<').shift();
 }
-
-
