@@ -12,7 +12,7 @@ Thorax is used to build some of the biggest Backbone applications in the world b
 
 ## Easy Data Binding
 
-By default every property of your view is automatically available in the template. If a model is bound it's attributes will also be made available.
+By default every property of your view is automatically available in the template. If a model is bound its attributes will also be made available.
 
     var view = new Thorax.View({
       greeting: 'Hello',
@@ -49,7 +49,7 @@ Then in your template:
 ## Collection Rendering
 
 Easily render collections with the `collection` helper. Thorax will make sure that your view stays current as models in your collection are added, removed or updated.
-    
+
     var view = new Thorax.View({
       collection: new Thorax.Collection([{
         title: 'Finish screencast',
@@ -101,7 +101,7 @@ Thorax also adds inheritable events to view classes, just call `on` on any class
     Thorax.View.on('eventName', handler);
 
 ## Form Handling
-  
+
 Easily capture entered form data with the `serialize` method which also provides event hooks for form validation. Models bound to the view will also automatically `populate` your forms.
 
     var view = new Thorax.View({

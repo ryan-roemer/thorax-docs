@@ -13,4 +13,4 @@ Read an overview of the features of Thorax, as well as some of the theory behind
 [Backbone Fundamentals](http://addyosmani.github.com/backbone-fundamentals/) also covers [Lumbar's](http://walmartlabs.github.com/lumbar) approach to modular application development and routing, which is used in all of the seed projects except the standalone and Rails seeds.
 
 ### TodoMVC
-See the [TodoMVC Thorax implementation](http://addyosmani.github.com/todomvc/labs/architecture-examples/thorax/) and it's [source code](https://github.com/addyosmani/todomvc/tree/gh-pages/labs/architecture-examples/thorax). There is also a [Lumbar flavored version](https://github.com/addyosmani/todomvc/tree/gh-pages/labs/dependency-examples/thorax_lumbar) of the implementation.
+See the [TodoMVC Thorax implementation](http://addyosmani.github.com/todomvc/labs/architecture-examples/thorax/) and its [source code](https://github.com/addyosmani/todomvc/tree/gh-pages/labs/architecture-examples/thorax). There is also a [Lumbar flavored version](https://github.com/addyosmani/todomvc/tree/gh-pages/labs/dependency-examples/thorax_lumbar) of the implementation.
