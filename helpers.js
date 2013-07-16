@@ -6,20 +6,21 @@ module.exports = function(static) {
       static.$(html, function($) {
         var output = '<ul class="sidebar-primary">';
         $('h2').each(function() {
-          output += '<li><a href="#' + $(this).attr('id') + '">' + cleanSignatures($(this).html()) + '</a>';
+          output += '<li><a href="#' + this.attr('id') + '">' + cleanSignatures(this.html()) + '</a>';
           var h3s = [];
-          $(this).nextAll().each(function() {
-            if ($(this).is('h3')) {
+          this.nextAll().each(function() {
+            if (this.is('h2')) {
               return false;
             } else {
-              h3s.push(this);
+              if (this.is('h3')) {
+                h3s.push(this);
+              }
             }
           });
-          h3s = $(h3s);
           if (h3s.length) {
             output += '<ul class="sidebar-secondary">';
-            h3s.each(function() {
-              output += '<li><a href="#' + $(this).attr('id') + '">' + cleanSignatures($(this).html()) + '</a>';
+            h3s.forEach(function(h3) {
+              output += '<li><a href="#' + h3.attr('id') + '">' + cleanSignatures(h3.html()) + '</a>';
             });
             output += '</ul>';
           }
