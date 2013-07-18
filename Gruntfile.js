@@ -36,6 +36,16 @@ module.exports = function(grunt) {
               'src/content/api.md',
               'src/includes/api-footer.html'
             ],
+            'public/error-codes.html': [
+              {
+                file: 'src/includes/start-header.hbs.html',
+                context: {
+                  title: "Thorax Error Codes"
+                }
+              },
+              'src/content/errors.md',
+              'src/includes/start-footer.html'
+            ],
             'public/start.html': 'src/start.hbs.html'
           };
           return staticBuild;
