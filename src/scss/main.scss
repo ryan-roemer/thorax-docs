@@ -4,8 +4,5 @@
 @import 'layout';
 @import 'modules';
 @import 'state';
-@media only screen and (max-width: 1200px) {
-  @import 'breakpoint-1';
-}
 @import 'helpers';
 @import 'print';
