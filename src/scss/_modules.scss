@@ -107,17 +107,19 @@
   position: absolute;
   top: 6px;
   right: 4px;
+  z-index: 2;
+  
   width: 18px;
   height: 18px;
-
+  padding: 0;
   border: 0;
+  border-radius: 50%;
 
-  background-color: transparent;
-  background-image: url('../img/reset.png');
-  background-repeat: no-repeat;
-
-  text-indent: -999em;
-  z-index: 2;
+  background: #e9e9e9;
+  color: #999;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1;
 }
 
 .search-results {
