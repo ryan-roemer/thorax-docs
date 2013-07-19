@@ -340,7 +340,7 @@
 
 .header {
   min-width: 1008px;
-  padding: 8px 0 6px;
+  padding: 18px 0;
   border-bottom: 6px solid $blue;
 
   background: $blue-dark;
@@ -410,7 +410,6 @@
   margin: 0;
 
   font-weight: 300;
-  -webkit-font-smoothing: antialiased;
 
   a {
     font-weight: 800;
@@ -418,14 +417,19 @@
 }
 
 .nav {
-  float: right;
-  margin-top: 20px;
   position: relative;
   z-index: 5;
+  
+  float: right;
+  margin: 6px 0;
 
   font-size: 14px;
   font-weight: 700;
   text-rendering: optimizeLegibility;
+
+  ul {
+    margin: 0;
+  }
 
   li {
     float: left;
