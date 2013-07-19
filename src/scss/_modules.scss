@@ -15,7 +15,15 @@
 }
 
 .quick-start {
+  ul {
+    padding: 0;
+
+    list-style: none;
+  }
+
   li {
+    margin: 1em 0;
+
     font-size: 0.85em;
   }
 }
@@ -68,7 +76,7 @@
 
   p > code,
   li > code {
-    padding: 1px 4px;
+    padding: 0 5px;
     border-radius: 3px;
 
     background-color: $blue-border;
@@ -222,10 +230,10 @@
   -webkit-font-smoothing: antialiased;
 
   @include box-shadow(
-    -1px 1px 0 $shadow-color,
-    -2px 2px 0 $shadow-color, 
-    -3px 3px 0 $shadow-color,
-    -4px 4px 0 $shadow-color
+    -1px 1px 0 $blue-border,
+    -2px 2px 0 $blue-border, 
+    -3px 3px 0 $blue-border,
+    -4px 4px 0 $blue-border
   );
 
   @include transition(all 0.1s ease-out);
@@ -251,11 +259,11 @@
   text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
 
   @include box-shadow(
-    -1px 1px 0 $shadow-color,
-    -2px 2px 0 $shadow-color, 
-    -3px 3px 0 $shadow-color,
-    -4px 4px 0 $shadow-color,
-    -5px 5px 0 $shadow-color
+    -1px 1px 0 $blue-border,
+    -2px 2px 0 $blue-border, 
+    -3px 3px 0 $blue-border,
+    -4px 4px 0 $blue-border,
+    -5px 5px 0 $blue-border
   );
 
   &:hover {
@@ -331,7 +339,6 @@
   visibility: hidden;
 
   background-color: #777;
-  background-color: rgba(0,0,0,0.5);
 
   iframe {
     display: none;
@@ -350,11 +357,12 @@
   background: none;
 
   color: #fff;
-  font-size: 12px;
-  font-weight: bold;
+  font-size: 0.75em;
+  font-weight: 700;
   letter-spacing: 1px;
   text-rendering: optimizeLegibility;
   text-transform: uppercase;
+  -webkit-font-smoothing: antialiased;
 
   &:hover {
     text-decoration: underline;
@@ -392,28 +400,37 @@
   }
 }
 
-.links {
-  padding: 0;
-
-  list-style: none;
+.home-content {
+  h2 {
+    border-bottom: 5px solid $blue-border;
+  }
 }
 
-.link-heading {
-  margin-bottom: 0.5em;
-}
+.features-content {
+  h2 {
+    margin-top: 0;
+    border: 0;
 
-.link-summary {
-  margin-top: 0;
-
-  font-size: 14px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
 }
 
 .examples {
+  margin-top: 0;
+  padding: 0;
+
   font-size: 14px;
   font-weight: bold;
+  list-style: none;
 
   li {
     margin: 0.5em 0;
+
+    &:first-child {
+      margin-top: 0;
+    }
   }
 }
 
@@ -422,18 +439,17 @@
 }
 
 .used-by {
-  margin: 1.5em 0;
-  padding-bottom: 1.5em;
+  padding: 1.5em 0;
   border-bottom: 1px solid $blue-border;
   
-  box-shadow: 0 15px 0 $white, 0 16px 0 $blue-border;
+  background: $blue-tint;
   text-align: center;
 }
 
 .used-by-caption {
   margin-top: 0;
 
-  font-size: 0.875em;
+  font-size: 1em;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
