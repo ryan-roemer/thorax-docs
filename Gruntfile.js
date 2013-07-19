@@ -105,6 +105,8 @@ module.exports = function(grunt) {
   // Default task.
   grunt.registerTask('default', ['process-readme', 'copy:main','static:docs','build','connect:server','open-browser','watch']);
   grunt.registerTask('build', ['compass','concat']);
+  grunt.registerTask('release', ['build', 'release-docs'])
+
 
   grunt.registerTask('open-browser', function() {
     var open = require('open');
@@ -120,5 +122,6 @@ module.exports = function(grunt) {
   // Extra Tasks
 
   grunt.loadTasks('grunt');
+
 
 };
