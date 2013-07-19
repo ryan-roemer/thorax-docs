@@ -57,7 +57,7 @@ pre {
 }
 
 code {
-  font-family: Source Code Pro, monospace, serif;
+  font-family: $code;
   font-size: 13px;
   color: #555;
 }
@@ -76,7 +76,7 @@ h3 {
     margin-left: 1.5em;
 
     color: #555;
-    font-family: Source Code Pro, monospace, serif;
+    font-family: $code;
     font-size: 13px;
     font-style: normal;
     font-weight: 500;
