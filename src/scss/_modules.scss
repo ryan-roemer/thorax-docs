@@ -1,21 +1,3 @@
-.logo {
-  margin: 0;
-  float: left;
-
-  font-size: 1.5em;
-  font-weight: 800;
-  letter-spacing: .104167em;
-  text-transform: uppercase;
-  text-rendering: optimizeLegibility;
-
-  -webkit-font-smoothing: antialiased;
-
-  a {
-    color: #222;
-    text-decoration: none;
-  }
-}
-
 .primary-container {
   margin-left: 192px;
   padding-left: 6px;
@@ -348,7 +330,25 @@
   -webkit-font-smoothing: antialiased;
 
   a {
+    color: $blue-light;
+  }
+}
+
+.logo {
+  margin: 0;
+  float: left;
+
+  font-size: 1.5em;
+  font-weight: 800;
+  letter-spacing: .104167em;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+
+  -webkit-font-smoothing: antialiased;
+
+  a {
     color: $white;
+    text-decoration: none;
   }
 }
 
@@ -365,7 +365,7 @@
 }
 
 .hero-content {
-  padding: 3em 0;
+  padding: 3em 0 2em;
 }
 
 .video {
@@ -419,7 +419,7 @@
 .nav {
   position: relative;
   z-index: 5;
-  
+
   float: right;
   margin: 6px 0;
 
@@ -434,10 +434,6 @@
   li {
     float: left;
     margin-left: 1.5em;
-  }
-
-  a {
-    color: $blue-light;
   }
 }
 
@@ -471,16 +467,20 @@
 }
 
 .used-by {
-  margin: 1.5em 0 0 0;
+  margin: 1.5em 0;
+  padding-bottom: 1.5em;
+  border-bottom: 1px solid $blue-border;
   
+  box-shadow: 0 15px 0 $white, 0 16px 0 $blue-border;
   text-align: center;
 }
 
 .used-by-caption {
-  font-size: 12px;
+  margin-top: 0;
+
+  font-size: 0.875em;
   font-weight: bold;
   text-transform: uppercase;
-  text-shadow: 0 1px 0 #FFF;
   letter-spacing: 1px;
 }
 
@@ -488,10 +488,6 @@
   padding: 0.5em 0;
   list-style: none;
   margin: 0;
-
-  border: 1px solid #ddd;
-  border-left: 0;
-  border-right: 0;
 
   li {
     display: inline-block;
