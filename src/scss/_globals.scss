@@ -1,4 +1,12 @@
 @import 'compass/css3';
 
-$blue: #1a75cf;
+$white: #fafafa;
 $yellow: #fdbb30;
+
+$blue-border: #d6dee4;
+$blue-tint: #e2eaf1;
+$blue-light: #66b3ff;
+$blue: #1a75cf;
+$blue-dark: #22394f;
+
+$shadow-color: darken($blue-tint, 10%);

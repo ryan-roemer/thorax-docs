@@ -22,11 +22,11 @@ input,
 select,
 textarea {
   font-family: proxima-nova, Helvetica Neue, Helvetica, Arial, sans-serif;
-  color: #222;
+  color: #444;
 }
 
 html {
-  @include background-image(linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0)), url('../img/main.png'));
+  background: $blue-tint;
 }
 
 .no-multiplebgs, .no-cssgradients {
