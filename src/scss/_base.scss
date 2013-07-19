@@ -21,29 +21,17 @@ button,
 input,
 select,
 textarea {
-  font-family: proxima-nova, Helvetica Neue, Helvetica, Arial, sans-serif;
-  color: #444;
+  font-family: $sans;
+  color: $primary;
 }
 
 html {
   background: $blue-tint;
 }
 
-.no-multiplebgs, .no-cssgradients {
-  background: #eee;
-}
-
 body {
   font-size: 1em;
   line-height: 1.4;
-}
-
-.docs {
-  h2 {
-    font-family: kulturista-web,Helvetica Neue,Helvetica,Arial,sans-serif;
-    font-weight: 300;
-    -webkit-font-smoothing: antialiased;
-  }
 }
 
 a {
@@ -63,7 +51,7 @@ img {
 pre {
   padding: 8px 12px;
 
-  border: 1px solid #ddd;
+  border: 1px solid $blue-border;
 
   background: #FFF;
 }
@@ -75,6 +63,7 @@ code {
 }
 
 h2 {
+  margin: 0.75em 0;
   font-size: 2em;
   text-rendering: optimizeLegibility;
 }
@@ -96,7 +85,7 @@ h3 {
 }
 
 h4 {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid $blue-border;
 }
 
 /*
