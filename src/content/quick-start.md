@@ -1,4 +1,4 @@
-## Quick Start
+# Quick Start
 
 - Clone the [Seed Project](http://github.com/walmartlabs/thorax-seed) and start building your own application.
 - Read about how Thorax works in the new [Backbone Fundamentals Book](http://addyosmani.github.com/backbone-fundamentals/#thorax).
