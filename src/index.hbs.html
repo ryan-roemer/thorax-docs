@@ -2,7 +2,7 @@
 
 <div class="hero clearfix">
   <div class="hero-content l-constrained">
-    <h2 class="tagline">An opinionated, battle-tested <a href="http://backbonejs.org/">Backbone</a> + <a href="http://handlebarsjs.com">Handlebars</a> framework to build large scale web applications.</h2>
+    <h2 class="tagline">An opinionated, battle-tested <a href="http://backbonejs.org/">Backbone</a> + <a href="http://handlebarsjs.com">Handlebars</a><br> framework to build large scale web applications.</h2>
 
     <a class="btn btn-primary btn-large" href="https://github.com/walmartlabs/thorax-seed">Clone Seed Project</a>
 
@@ -21,23 +21,26 @@
   </div>
 </div>
 
-<div class="l-constrained">
-  <div class="used-by">
-    <p class="used-by-caption">Used By</p>
+<div class="used-by">
+  <div class="l-constrained">
+    <h3 class="used-by-caption">Used By</h3>
     <ul class="used-by-list">
       <li><a class="ir used-by-walmart" href="http://walmart.com">Walmart</a></li>
       <li><a class="ir used-by-asda" href="http://asda.com">ASDA</a></li>
       <li><a class="ir used-by-metalab" href="http://metalabdesign.com">Metalab</a></li>
     </ul>
   </div>
-  <div class="l-row clearfix">
+</div>
+
+<div class="l-constrained">
+  <div class="home-content l-row clearfix">
     <div class="l-col3">
-      <div class="l-col2 l-nested-first clearfix">
+      <h2>Features</h2>
+      <div class="features-content l-col2 l-alpha clearfix">
         {{include "content/features.md"}}
       </div>
       <div class="l-col1 features">
-        <h3>Features</h3>
-        <ul class="links examples">
+        <ul class="examples">
           {{#include "content/features.md" select="h2"}}
             <li><a href="#{{id}}">{{innerHTML}}</a></li>
           {{/include}}

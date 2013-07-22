@@ -59,7 +59,7 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      files: ['src/css/scss/*.scss', 'src/*.hbs.html', 'src/includes/*'],
+      files: ['src/scss/*.scss', 'src/*.hbs.html', 'src/includes/*'],
       tasks: ['static:docs','compass:build','concat']
     },
     compass: {
@@ -103,7 +103,8 @@ module.exports = function(grunt) {
   });
 
   // Default task.
-  grunt.registerTask('default', ['process-readme', 'copy:main','static:docs','build','connect:server','open-browser','watch']);
+  grunt.registerTask('default', ['process-readme', 'copy:main','static:docs','build','connect:server','watch']);
+  grunt.registerTask('start', ['process-readme', 'copy:main','static:docs','build','connect:server','open-browser','watch']);
   grunt.registerTask('build', ['compass','concat']);
   grunt.registerTask('release', ['build', 'release-docs'])
 

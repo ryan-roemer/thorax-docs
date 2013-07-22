@@ -21,29 +21,19 @@ button,
 input,
 select,
 textarea {
-  font-family: proxima-nova, Helvetica Neue, Helvetica, Arial, sans-serif;
-  color: #222;
+  font-family: $sans;
+  color: $primary;
 }
 
 html {
-  @include background-image(linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0)), url('../img/main.png'));
-}
-
-.no-multiplebgs, .no-cssgradients {
-  background: #eee;
+  background: $white;
 }
 
 body {
+  min-width: 1000px;
+  
   font-size: 1em;
   line-height: 1.4;
-}
-
-.docs {
-  h2 {
-    font-family: kulturista-web,Helvetica Neue,Helvetica,Arial,sans-serif;
-    font-weight: 300;
-    -webkit-font-smoothing: antialiased;
-  }
 }
 
 a {
@@ -63,18 +53,19 @@ img {
 pre {
   padding: 8px 12px;
 
-  border: 1px solid #ddd;
+  border: 1px solid $blue-border;
 
   background: #FFF;
 }
 
 code {
-  font-family: Source Code Pro, monospace, serif;
+  font-family: $code;
   font-size: 13px;
   color: #555;
 }
 
 h2 {
+  margin: 0.75em 0;
   font-size: 2em;
   text-rendering: optimizeLegibility;
 }
@@ -87,16 +78,12 @@ h3 {
     margin-left: 1.5em;
 
     color: #555;
-    font-family: Source Code Pro, monospace, serif;
+    font-family: $code;
     font-size: 13px;
     font-style: normal;
     font-weight: 500;
     -webkit-font-smoothing: subpixel-antialiased;
   }
-}
-
-h4 {
-  border-bottom: 1px solid #ccc;
 }
 
 /*
@@ -116,40 +103,9 @@ h4 {
 }
 
 /*
- * A better looking default horizontal rule
- */
-
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #ccc;
-  margin: 1em 0;
-  padding: 0;
-}
-
-/*
  * Remove the gap between images and the bottom of their containers: h5bp.com/i/440
  */
 
 img {
   vertical-align: middle;
-}
-
-/*
- * Remove default fieldset styles.
- */
-
-fieldset {
-  border: 0;
-  margin: 0;
-  padding: 0;
-}
-
-/*
- * Allow only vertical resizing of textareas.
- */
-
-textarea {
-  resize: vertical;
 }
