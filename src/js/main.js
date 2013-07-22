@@ -21,6 +21,8 @@ $(function() {
     $(window).scroll(function() {
       positionSidebar();
     });
+
+    positionSidebar();
   }
 
 
