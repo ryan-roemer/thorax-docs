@@ -6,7 +6,6 @@
     "async": "0.2.9",
     "static": "~2.0.0",
     "grunt": "~0.4.1",
-    "fs": "latest",
     "path": "latest",
     "which": "latest",
     "connect": "latest",
