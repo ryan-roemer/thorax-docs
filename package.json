@@ -19,5 +19,8 @@
     "grunt-contrib-watch": "latest",
     "grunt-contrib-concat": "latest",
     "grunt-contrib-uglify": "latest"
+  },
+  "devDependencies": {
+    "grunt-cli": "~0.1.9"
   }
 }
